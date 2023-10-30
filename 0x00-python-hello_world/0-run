@@ -1,6 +1,2 @@
 #!/bin/bash
-if [ -f "$PYFILE" ]; then
-	python3 "$PYFILE"
-else
-	echo "Python script not found"
-fi
+python3 "$PYFILE"
