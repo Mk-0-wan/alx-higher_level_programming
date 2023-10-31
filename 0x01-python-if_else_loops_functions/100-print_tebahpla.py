@@ -10,4 +10,4 @@ for i, char in enumerate(range(122, 96, -1)):
     if i == index:
         char -= 32
         index += 2
-    print(chr(char), end='')
+    print("{}".format(chr(char)), end='')
