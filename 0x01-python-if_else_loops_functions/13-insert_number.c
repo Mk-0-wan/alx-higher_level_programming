@@ -11,8 +11,7 @@ listint_t *insert_node(listint_t **head, int number)
 {
 	listint_t *current = *head, *ahead = NULL, *temp = NULL;
 	listint_t *insert_new_node = malloc(sizeof(listint_t));
-	/*   current      ahead   */
-	/*|---Node---||---Node---||---Node---||---Node---|*/
+
 	if (!insert_new_node)
 	{
 		perror("malloc failed");
@@ -24,8 +23,6 @@ listint_t *insert_node(listint_t **head, int number)
 
 	if (!*head || number < (*head)->n)
 	{
-		/* if head is either NULL or greater than the number */
-		/* update the header with the new_node */
 		insert_new_node->next = *head;
 		*head = insert_new_node;
 		return (*head);
@@ -41,11 +38,13 @@ listint_t *insert_node(listint_t **head, int number)
 			insert_new_node->next = temp;
 			return (insert_new_node);
 		}
+#if 0
 		else if (insert_new_node->n > current->n && insert_new_node->n > ahead->n)
 		{
 			add_nodeint_end(head, number);
 			break;
 		}
+#endif
 		current = current->next;
 		ahead = ahead->next;
 	}
@@ -53,8 +52,13 @@ listint_t *insert_node(listint_t **head, int number)
 }
 /**
 * steps - to follow while making the code above
-* -----
+*-----------------------------------------------
+*   current      ahead
+*|---Node---||---Node---||---Node---||---Node---|
+*
 * Make a new node with the members having the values
+* if head is either NULL or greater than the number
+* update the header with the new_node
 * first traverse through the whole list
 * at each node compare the current and the next node number member
 * if it falls between the range insert the node inside that range
