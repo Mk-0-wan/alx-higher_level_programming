@@ -9,21 +9,7 @@
  */
 listint_t *insert_node(listint_t **head, int number)
 {
-	/**
-	 * steps
-	 * -----
-	 * Make a new node with the members having the values
-	 * first traverse through the whole list
-	 * at each node compare the current and the next node number member
-	 * if it falls between the range insert the node inside that range
-	 * update the linked list
-	 * if the current->number <= new_node->number && new_node <= ahead->number
-	 * then insert the new_node there
-	 * temp = current->next
-	 * current->next = new_node
-	 * new_node->next = temp
-	 */
-	listint_t *current = *head, *ahead = (*head)->next, *temp = NULL;
+	listint_t *current = *head, *ahead = NULL, *temp = NULL;
 	listint_t *insert_new_node = malloc(sizeof(listint_t));
 	/*   current      ahead   */
 	/*|---Node---||---Node---||---Node---||---Node---|*/
@@ -36,6 +22,16 @@ listint_t *insert_node(listint_t **head, int number)
 	insert_new_node->n = number;
 	insert_new_node->next = NULL;
 
+	if (!*head || number < (*head)->n)
+	{
+		/* if head is either NULL or greater than the number */
+		/* update the header with the new_node */
+		insert_new_node->next = *head;
+		*head = insert_new_node;
+		return (*head);
+	}
+
+	ahead = (*head)->next;
 	while (current->next && ahead->next)
 	{
 		if (current->n <= insert_new_node->n && insert_new_node->n <= ahead->n)
@@ -45,8 +41,27 @@ listint_t *insert_node(listint_t **head, int number)
 			insert_new_node->next = temp;
 			return (insert_new_node);
 		}
+		else if (insert_new_node->n > current->n && insert_new_node->n > ahead->n)
+		{
+			add_nodeint_end(head, number);
+			break;
+		}
 		current = current->next;
 		ahead = ahead->next;
 	}
 	return (NULL);
 }
+/**
+* steps - to follow while making the code above
+* -----
+* Make a new node with the members having the values
+* first traverse through the whole list
+* at each node compare the current and the next node number member
+* if it falls between the range insert the node inside that range
+* update the linked list
+* if the current->number <= new_node->number && new_node <= ahead->number
+* then insert the new_node there
+* temp = current->next
+* current->next = new_node
+* new_node->next = temp
+*/
