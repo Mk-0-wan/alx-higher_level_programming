@@ -15,10 +15,6 @@ elif sys.argv[2] == "+":
     res = calculator_1.add(int(sys.argv[1]), int(sys.argv[3]))
     print(f"{sys.argv[1]} {sys.argv[2]} {sys.argv[3]} = {res}")
     sys.exit(0)
-elif sys.argv[2] == "+":
-    res = calculator_1.add(int(sys.argv[1]), int(sys.argv[3]))
-    print(f"{sys.argv[1]} {sys.argv[2]} {sys.argv[3]} = {res}")
-    sys.exit(0)
 elif sys.argv[2] == "-":
     res = calculator_1.sub(int(sys.argv[1]), int(sys.argv[3]))
     print(f"{sys.argv[1]} {sys.argv[2]} {sys.argv[3]} = {res}")
