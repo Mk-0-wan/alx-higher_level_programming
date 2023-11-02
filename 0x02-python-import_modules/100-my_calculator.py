@@ -12,25 +12,19 @@ if (len(argv) - 1) != 3:
     exit(1)
 # handle the operators
 elif argv[2] == "+":
-    res = add(int(sys.argv[1]), int(sys.argv[3]))
-    print(f"{argv[1]} {argv[2]} {argv[3]} = {res}")
-    exit(0)
+    dynamic_func = add
 elif argv[2] == "-":
-    res = sub(int(argv[1]), int(argv[3]))
-    print(f"{argv[1]} {argv[2]} {argv[3]} = {res}")
-    exit(0)
+    dynamic_func = sub
 elif argv[2] == "*":
-    res = mul(int(sys.argv[1]), int(sys.argv[3]))
-    print(f"{argv[1]} {argv[2]} {argv[3]} = {res}")
-    exit(0)
+    dynamic_func = mul
 elif argv[2] == "/":
-    res = div(int(sys.argv[1]), int(sys.argv[3]))
-    print(f"{argv[1]} {argv[2]} {argv[3]} = {res}")
-    exit(0)
+    dynamic_func = div
 # handle non valid operators
 else:
     print("Unknown operator. Available operators: +, -, * and /\n")
     exit(1)
 
+x = dynamic_func(int(argv[1]), int(argv[3]))
+print("{:d} {:s} {:d} = {:d}".format(int(argv[1]), argv[2], int(argv[3]), x))
 if __name__ == "__main__":
     exit()
