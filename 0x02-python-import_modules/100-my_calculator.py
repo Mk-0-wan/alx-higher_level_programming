@@ -3,6 +3,8 @@
 from sys import argv
 from calculator_1 import add, sub, mul, div
 
+res = dynamic_func(int(argv[1]), int(argv[3]))
+
 # handle the number of argument passed
 # failed program should exit with status of 1
 # cast all the argument into integers
@@ -17,7 +19,7 @@ elif argv[2] == "+":
     sys.exit(0)
 elif argv[2] == "-":
     res = sub(int(sys.argv[1]), int(sys.argv[3]))
-    print(f"{sys.argv[1]} {sys.argv[2]} {sys.argv[3]} = {res}")
+    print(f"{sys.argv[1]:d} {sys.argv[2]:s} {sys.argv[3]:d} = {res:d}")
     sys.exit(0)
 elif argv[2] == "*":
     res = mul(int(sys.argv[1]), int(sys.argv[3]))
