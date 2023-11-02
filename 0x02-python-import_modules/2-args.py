@@ -6,7 +6,9 @@ if __name__ == "__main__":
     x = len(av) - 1
 
     if (x == 0):
-        print("{} arguments.".format(x))
+        print("{:d} arguments.".format(x))
+    elif (x == 1):
+        print("{:d} argument:".format(x))
     else:
         print("{:d} arguments:".format(x))
 
