@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from sm_math_operation import add, sub
-
+if __name__ == "__main__":
 
 def magic_calculation(a, b):
     if (a < b):
