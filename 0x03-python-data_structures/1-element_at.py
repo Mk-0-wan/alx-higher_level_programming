@@ -5,8 +5,8 @@
 def element_at(my_list, idx):
     x = len(my_list)
     if (x == 0):
-        exit()
-    for i in range(0, x+1):
+        exit
+    for i in range(0, x):
         if (i == idx):
             return int(my_list[i])
         elif idx < 0 or idx > x:
