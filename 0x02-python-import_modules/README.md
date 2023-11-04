@@ -19,9 +19,13 @@
    ```
 * Also you can use an if statement inside a print statement
    ```python
-   #!/usr/bin/python3
-   for i in range(0, 5):
-     print("{} is even".format(i), end=' ' if (i % 2 == 0) else "\n")
+  #!/usr/bin/python3
+   num = int(input("Enter a max digit for your range: "))
+   for i in range(0, num):
+         if i == 0:
+            continue
+         else:
+            print("{}".format(i), end=' -[even]\n' if (i % 2 == 0) else " -[odd] ")
    ```
 * There are more tips inside the files themselves this is just a tip of the iceberg
 
