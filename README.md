@@ -22,7 +22,7 @@ sudo pacman -S git
 sudo pacman -S python3 || sudo pacman -Ss python3.4
 ```
 
-## Author 👨‍💻
+## Author 🧑🏿‍💻
 This whole project is written and maintained by [**MK-0-wan**](https://github.com/Mk-0-wan)
 
 ## License 💼
