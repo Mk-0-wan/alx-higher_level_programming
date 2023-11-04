@@ -4,9 +4,7 @@
 # if the indx is less than 0 return the original list
 def replace_in_list(my_list, idx, element):
     x = len(my_list)
-    if (x == 0):
-        exit
-    elif idx < 0 or idx > x:
+    if idx < 0 or idx > x-1:
         return my_list
     else:
         my_list[idx] = int(element)
