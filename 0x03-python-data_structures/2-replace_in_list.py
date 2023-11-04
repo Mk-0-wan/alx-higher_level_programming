@@ -8,7 +8,7 @@ def replace_in_list(my_list, idx, element):
         exit
     for i in range(0, x):
         if (i == idx):
-           my_list[i] = element
-           return my_list
+            my_list[i] = element
+            return my_list
         elif idx < 0 or idx > x:
             return my_list
