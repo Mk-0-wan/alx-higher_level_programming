@@ -1,7 +1,7 @@
 # 0x00-python-hello_world ☕
 * Simple concepts that help one to understand how python works and how to implement them<br>
 * The main aim of this project is to make sure one understands the usecase of python scripts and how to create one<br>
-* And different scenarios you can be able to run them, that is either from a bash script or python script itself
+* How you can be able to run them, that is either from a bash script or python script itself
 
 ## Tools 🧰
 * Must have `git` installed
