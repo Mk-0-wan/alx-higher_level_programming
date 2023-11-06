@@ -1,5 +1,5 @@
-#include "Python.h"
 #include <stdlib.h>
+#include "/usr/include/python3.4/Python.h"
 
 /**
  * print_python_list_info - prints information about a python list object
@@ -21,7 +21,7 @@ void print_python_list_info(PyObject *p)
 	printf("[*] Allocated = %ld\n", (signed long)(py_list->allocated));
 	while (i < list_len)
 	{
-		ele_type = Py_TYPE(py_list->ob_item[i])->tp_name;
+		element_type = Py_TYPE(py_list->ob_item[i])->tp_name;
 		printf("Element %ld: %s\n", i, element_type);
 		i++;
 	}
