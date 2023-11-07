@@ -33,11 +33,11 @@ int is_palindrome(listint_t **head)
 	tail_node = prev; /* move to the last node in the list */
 	while (head_node != NULL && tail_node != NULL)
 	{
-		if (head_node->n == tail_node->n)
-			/* yes it's a palindrome*/
-			return (1);
+		if (head_node->n != tail_node->n)
+			/* yes it's not a palindrome*/
+			return (0);
 		head_node = head_node->next;
 		tail_node = tail_node->next;
 	}
-	return (0);
+	return (1);
 }
