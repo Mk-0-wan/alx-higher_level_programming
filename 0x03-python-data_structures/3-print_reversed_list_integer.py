@@ -4,6 +4,8 @@ if __name__ != "__main__":
         """
         prints the reverse order of a list
         """
+        if not my_list:
+            return None
         last = len(my_list)+1
 
         for i in range(1, last):
