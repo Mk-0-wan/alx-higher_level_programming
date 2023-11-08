@@ -17,7 +17,7 @@ int is_palindrome(listint_t **head)
 	 *
 	 */
 	listint_t *head_node = *head;
-	listint_t *tail_node = *head;
+	listint_t *tail_node = *head; /* this copy is to be freed once done */
 	listint_t *rev_head = NULL, *prev = NULL;
 	/* for reverse list */
 	if (!*head)
@@ -38,6 +38,8 @@ int is_palindrome(listint_t **head)
 			return (1);
 		head_node = head_node->next;
 		tail_node = tail_node->next;
+		free_listint(head_node);
 	}
+	free_listint(tail_node);
 	return (0);
 }
