@@ -1,11 +1,9 @@
 #include "Python.h"
 
 /**
-* print_python_bytes - print information about the python byte object
+ * print_python_bytes - print information about the python byte object
  * written in python
- *
  * @p: pointer to a python Object
- *
  * Return: Always void
  */
 void print_python_bytes(PyObject *p)
@@ -24,12 +22,12 @@ void print_python_bytes(PyObject *p)
 	printf("  trying string: %s\n", pyByte->ob_sval);
 	/* represent only the first 10 bytes on a string */
 	if (PyBytes_Size(p) >= 10)
-		printf("  first 10 bytes: ");
+		printf("  first 10 bytes:");
 	else
-		printf("  first %zu bytes: ", PyBytes_Size(p) + 1);
-	while (i <= 10 && i <= PyBytes_Size(p))
+		printf("  first %zu bytes:", PyBytes_Size(p) + 1);
+	while (i < 10 && i <= PyBytes_Size(p))
 	{
-		printf("%02x ", (unsigned char)pyByte->ob_sval[i]);
+		printf(" %02x", (unsigned char)(pyByte->ob_sval[i] & 0xff));
 		i++;
 	}
 	printf("\n");
