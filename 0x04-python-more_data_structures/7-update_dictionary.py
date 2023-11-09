@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def update_dictionary(a_dictionary, key, value):
     # find a key in the dict
     lc = list(a_dictionary.keys())
