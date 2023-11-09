@@ -21,7 +21,7 @@ void print_python_bytes(PyObject *p)
 		return;
 	}
 	printf("  size: %ld\n", PyBytes_Size(p));
-	printf("  type string: %s\n", pyByte->ob_sval);
+	printf("  trying string: %s\n", pyByte->ob_sval);
 	/* represent only the first 10 bytes on a string */
 	if (PyBytes_Size(p) >= 10)
 		printf("  first 10 bytes: ");
