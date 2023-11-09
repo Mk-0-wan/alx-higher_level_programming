@@ -10,6 +10,8 @@ void print_python_bytes(PyObject *p)
 {
 	PyBytesObject *pyByte = NULL;
 	ssize_t i = 0;
+	/*Py_ssize_t size = 0;*/
+	/*char *pBByte;*/
 
 	pyByte = (PyBytesObject *)p;
 	printf("[.] bytes object info\n");
@@ -19,6 +21,7 @@ void print_python_bytes(PyObject *p)
 		return;
 	}
 	printf("  size: %ld\n", PyBytes_Size(p));
+	/*PyBytes_AsStringAndSize(p, &pBByte, &size);*/
 	printf("  trying string: %s\n", pyByte->ob_sval);
 	/* represent only the first 10 bytes on a string */
 	if (PyBytes_Size(p) >= 10)
