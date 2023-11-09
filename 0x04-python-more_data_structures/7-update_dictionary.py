@@ -1,13 +1,10 @@
 def update_dictionary(a_dictionary, key, value):
-    # find a key in the dict
-    lc = list(a_dictionary.keys())
-
-    for kys in range(len(lc)):
-        # if exist change its value
-        if lc[kys] == key:
-            a_dictionary.__setitem__(lc[kys], value)
-        # if not then make a new dict key value use update({key: value})
-        else:
-            a_dictionary.update({key: value})
+    # Check if key exists in the dictionary
+    if key in a_dictionary:
+        # If key exists, update its value
+        a_dictionary[key] = value
+    else:
+        # If key doesn't exist, add a new key-value pair
+        a_dictionary[key] = value
 
     return a_dictionary
