@@ -5,7 +5,7 @@ def simple_delete(a_dictionary, key=""):
 
     for kys in range(len(lc)):
         if lc[kys] == key:
-           a_dictionary.pop(lc[kys])
-           return a_dictionary
+            a_dictionary.pop(lc[kys])
+            return a_dictionary
     # if the key doesn't exist just return the original dict
     return a_dictionary
