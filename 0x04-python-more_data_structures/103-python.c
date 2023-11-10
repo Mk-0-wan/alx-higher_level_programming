@@ -1,17 +1,17 @@
 #include "Python.h"
 
 /**
-* print_python_bytes - print information about the python byte object
+ * print_python_bytes - print information about the python byte object
  * written in python
- *
  * @p: pointer to a python Object
- *
  * Return: Always void
  */
 void print_python_bytes(PyObject *p)
 {
 	PyBytesObject *pyByte = NULL;
 	ssize_t i = 0;
+	/*Py_ssize_t size = 0;*/
+	/*char *pBByte;*/
 
 	pyByte = (PyBytesObject *)p;
 	printf("[.] bytes object info\n");
@@ -21,15 +21,16 @@ void print_python_bytes(PyObject *p)
 		return;
 	}
 	printf("  size: %ld\n", PyBytes_Size(p));
-	printf("  type string: %s\n", pyByte->ob_sval);
+	/*PyBytes_AsStringAndSize(p, &pBByte, &size);*/
+	printf("  trying string: %s\n", pyByte->ob_sval);
 	/* represent only the first 10 bytes on a string */
 	if (PyBytes_Size(p) >= 10)
-		printf("  first 10 bytes: ");
+		printf("  first 10 bytes:");
 	else
-		printf("  first %zu bytes: ", PyBytes_Size(p) + 1);
-	while (i <= 10 && i <= PyBytes_Size(p))
+		printf("  first %zu bytes:", PyBytes_Size(p) + 1);
+	while (i < 10 && i <= PyBytes_Size(p))
 	{
-		printf("%02x ", (unsigned char)pyByte->ob_sval[i]);
+		printf(" %02x", (unsigned char)(pyByte->ob_sval[i] & 0xff));
 		i++;
 	}
 	printf("\n");

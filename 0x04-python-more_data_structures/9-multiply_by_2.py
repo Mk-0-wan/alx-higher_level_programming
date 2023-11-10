@@ -6,6 +6,6 @@ def multiply_by_2(a_dictionary):
     lv = list(new_dict.keys())
     for kys in range(len(lv)):
         new_value = int(new_dict.get(lv[kys])) * 2
-        #print("{:d}".format(int(new_value)))
+        # print("{:d}".format(int(new_value)))
         new_dict.__setitem__(lv[kys], new_value)
     return new_dict

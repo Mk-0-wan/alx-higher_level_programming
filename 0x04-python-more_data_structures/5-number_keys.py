@@ -4,4 +4,3 @@ def number_keys(a_dictionary):
     lc = list(a_dictionary.keys())
     # iterate over the list and return the len
     return int(len(lc))
-    

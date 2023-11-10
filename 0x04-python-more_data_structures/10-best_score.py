@@ -8,6 +8,7 @@ def max_integer(my_list=[]):
             start_val = int(i)
     return (start_val)
 
+
 def best_score(a_dictionary):
     if a_dictionary is None:
         return None
@@ -15,12 +16,12 @@ def best_score(a_dictionary):
     max_score = []
 
     for kys in range(len(lc)):
-        if (a_dictionary.get(lc[kys]) != None):
+        if (a_dictionary.get(lc[kys]) is not None):
             max_score.append(a_dictionary.get(lc[kys]))
-    
+
     max_value = max_integer(max_score)
 
     for new_kys in range(len(lc)):
         if (max_value == a_dictionary.get(lc[new_kys])):
             return lc[new_kys]
-    #return None
+    # return None
