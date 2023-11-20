@@ -22,9 +22,8 @@ def safe_print_list_integers(my_list=[], x=0):
                 continue
         print()
         return (count)
-    except (IndexError):
-        import traceback
-        traceback.print_exc()
+    except (IndexError) as Id:
+        print(Id)
 
 my_list = [1, 2, 3, 4, 5]
 nb_print = safe_print_list_integers(my_list, 2)
