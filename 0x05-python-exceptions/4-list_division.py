@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def list_division(my_list_1, my_list_2, list_length):
-    if (my_list_1, my_list_2) is not None:
+    if my_list_1 is not None and my_list_2 is not None:
         index = 0
         new_list = []
         for elem in range(0, list_length):
