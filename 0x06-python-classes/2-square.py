@@ -12,16 +12,16 @@ class Square:
         the square calculation.
 
     """
-    def __init__(self, size=None):
+    def __init__(self, size=0):
         """Initializes the instances variables for Square class.
 
         Args:
             size (unknown): Param that takes in a value which is later
             on transformed into a private variable
         """
-        if isinstance(size, int):
-            self.__size = size
-        else:
+        if not isinstance(size, int):
             raise TypeError("size must be an integer")
-        if size < 0:
+        elif size < 0:
             raise ValueError("size must be >= 0")
+        else:
+            self.__size = size
