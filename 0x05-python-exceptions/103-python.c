@@ -53,10 +53,11 @@ void print_python_float(PyObject *p)
 	/* check on how to get the value from it */
 	if (PyFloat_Check(p) && pyFloat)
 	{
-		printf("  value: %lf\n", PyFloat_AsDouble(p));
+		printf("  value: %s\n",
+			PyOS_double_to_string(pyFloat->ob_fval, 'g', 16,
+				Py_DTSF_ADD_DOT_0, NULL));
 		fflush(stdout);
 	}
-	/* how to print all the list of float */
 }
 
 /**
