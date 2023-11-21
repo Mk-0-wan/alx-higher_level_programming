@@ -83,5 +83,7 @@ class Square:
         if (x == 0):
             print()
         else:
+            if (y[1] > 0):
+                print()
             for _ in range(x):
                 print(" " * y[0] + "#" * x)
