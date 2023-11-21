@@ -65,15 +65,17 @@ class Square:
 
     @position.setter
     def position(self, value):
-        """Public position setter function that allows us to mutate the value of position
+        """Public position setter function that allows us
+        to mutate the value of position
 
         Args:
             value (tuple): will be used to update the position values
 
         """
-        if not isinstance(value[0], int) and isinstance (value[1], int):
+        if not isinstance(value[0], int) and isinstance(value[1], int):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
+
     def my_print(self):
         """Artistic print function from the square of size
 
@@ -83,7 +85,7 @@ class Square:
         if (x == 0):
             print()
         else:
-            if (y[1] > 0):
+            for _ in range(y[1]):
                 print()
             for _ in range(x):
                 print(" " * y[0] + "#" * x)
