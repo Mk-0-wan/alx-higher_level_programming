@@ -63,7 +63,5 @@ class Square:
         if (x == 0):
             print()
         else:
-            y = x**2
-            i = 1
-            for _ in range(y):
+            for _ in range(x):
                 print("#" * x)
