@@ -1,4 +1,5 @@
 #include "Python.h"
+#include <stdio.h>
 
 /**
  * print_python_bytes - Prints python Bytes objects
@@ -53,6 +54,7 @@ void print_python_float(PyObject *p)
 	/* check on how to get the value from it */
 	if (PyFloat_Check(p) && pyFloat)
 	{
+		fflush(stdout);
 		printf("  value: %s\n",
 			PyOS_double_to_string(pyFloat->ob_fval, 'g', 16,
 				Py_DTSF_ADD_DOT_0, NULL));
