@@ -1,9 +1,5 @@
 #!/usr/bin/python3
+"""Simple Introduction to Python OPP"""
 class Square:
-    """
-    A simple python class that prints the Square of a
-    python object
-    For now its just a simple demonstration of how it should
-    look like
-    """
+    """A simple python class that prints the Square of a python object"""
     pass
