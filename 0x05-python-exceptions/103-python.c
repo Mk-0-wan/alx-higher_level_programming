@@ -76,6 +76,7 @@ void print_python_list(PyObject *p)
 	const char *element_type = NULL;
 
 	py_list = (PyListObject *)p;
+	list_len = py_list->ob_base.ob_size;
 
 	printf("[*] Python list info\n");
 	if (PyList_Check(p) != 1)
@@ -85,7 +86,6 @@ void print_python_list(PyObject *p)
 	}
 	printf("[*] Size of the Python List = %ld\n", list_len);
 	printf("[*] Allocated = %ld\n", (signed long)(py_list->allocated));
-	list_len = py_list->ob_base.ob_size;
 	
 	while (i < list_len)
 	{
