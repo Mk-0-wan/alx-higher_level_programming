@@ -5,7 +5,6 @@ import math
 
 class MagicClass:
     """Magic class bytecode"""
-
     def __init__(self, radius=None):
         """initializes the variables instances"""
         self._MagicClass__radius = 0
