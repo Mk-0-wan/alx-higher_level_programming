@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Simple Magic Calculatation"""
 import math
 
 
