@@ -54,10 +54,9 @@ void print_python_float(PyObject *p)
 	/* check on how to get the value from it */
 	if (PyFloat_Check(p) && pyFloat)
 	{
-		fflush(stdout);
 		printf("  value: %s\n",
-			PyOS_double_to_string(pyFloat->ob_fval, 'g', 16,
-				Py_DTSF_ADD_DOT_0, NULL));
+			PyOS_double_to_string(pyFloat->ob_fval, 'r', 0,
+				Py_DTSF_ADD_DOT_0, Py_DTST_FINITE));
 		fflush(stdout);
 	}
 }
@@ -76,8 +75,7 @@ void print_python_list(PyObject *p)
 	const char *element_type = NULL;
 
 	py_list = (PyListObject *)p;
-	list_len = py_list->ob_base.ob_size;
-
+	
 	printf("[*] Python list info\n");
 	if (PyList_Check(p) != 1)
 	{
@@ -86,6 +84,8 @@ void print_python_list(PyObject *p)
 	}
 	printf("[*] Size of the Python List = %ld\n", list_len);
 	printf("[*] Allocated = %ld\n", (signed long)(py_list->allocated));
+	list_len = py_list->ob_base.ob_size;
+
 	while (i < list_len)
 	{
 		element_type = py_list->ob_item[i]->ob_type->tp_name;
