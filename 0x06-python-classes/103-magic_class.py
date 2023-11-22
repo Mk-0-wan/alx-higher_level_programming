@@ -1,13 +1,11 @@
 #!/usr/bin/python3
-"""Simple Magic Calculation"""
 import math
 
 
 class MagicClass:
     """Magic class bytecode"""
-    radius = 0
 
-    def __init__(self):
+    def __init__(self, radius=None):
         """initializes the variables instances"""
         self._MagicClass__radius = 0
         if type(radius) is not int or type(radius) is not float:
@@ -22,3 +20,4 @@ class MagicClass:
     def circumference(self):
         """calculates the circumference"""
         return 2 * math.pi * self._MagicClass__radius
+    
