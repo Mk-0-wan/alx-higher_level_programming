@@ -31,7 +31,8 @@ class Node:
 
     @data.setter
     def data(self, value):
-        """Sets a new value to the private instance variable value, it mutates the private value
+        """Sets a new value to the private instance variable value,
+        it mutates the private value
 
         Args:
             value (int): the new value for the private size
