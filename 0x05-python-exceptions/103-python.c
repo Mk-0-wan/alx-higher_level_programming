@@ -17,6 +17,7 @@ void print_python_bytes(PyObject *p)
 	if (PyBytes_Check(p) != 1)
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
+		fflush(stdout);
 		return;
 	}
 	printf("  size: %ld\n", PyBytes_Size(p));
@@ -32,6 +33,7 @@ void print_python_bytes(PyObject *p)
 		i++;
 	}
 	printf("\n");
+	fflush(stdout);
 }
 
 /**
@@ -49,6 +51,7 @@ void print_python_float(PyObject *p)
 	if (PyFloat_Check(p) != 1)
 	{
 		printf("  [ERROR] Invalid Float Object\n");
+		fflush(stdout);
 		return;
 	}
 	/* check on how to get the value from it */
@@ -80,6 +83,7 @@ void print_python_list(PyObject *p)
 	if (PyList_Check(p) != 1)
 	{
 		printf("  [ERROR] Invalid List Object\n");
+		fflush(stdout);
 		return;
 	}
 	printf("[*] Size of the Python List = %ld\n", list_len);
