@@ -94,9 +94,10 @@ class Square:
         x = self.__size
         y = self.__position
         if (x == 0):
-            return "\n"
+            return ""
         else:
-            lst.append("\n" * (y[1]-1))
+            if (y[1] > 0):
+                lst.append("\n" * (y[1] - 1))
             for _ in range(x):
                 lst.append(" " * y[0] + "#" * x)
         return "\n".join(lst)
