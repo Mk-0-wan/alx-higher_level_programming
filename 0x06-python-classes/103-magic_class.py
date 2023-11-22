@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Simple Magic Class"""
+"""Simple Magic Calculation"""
+import math
 
 
 class MagicClass:
