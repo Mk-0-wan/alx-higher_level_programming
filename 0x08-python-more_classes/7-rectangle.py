@@ -26,7 +26,6 @@ class Rectangle:
         self.print_symbol = Rectangle.print_symbol
         self.height = height
 
-
     @property
     def width(self):
         """Getting the initial width value"""
@@ -96,7 +95,7 @@ class Rectangle:
             return ""
         else:
             for _ in range(self.__height):
-                lst += str(self.print_symbol) * self.__width  + "\n"
+                lst += str(self.print_symbol) * self.__width + "\n"
         return lst.rstrip("\n")
 
     def __repr__(self):
