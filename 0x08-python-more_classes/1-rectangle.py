@@ -21,20 +21,20 @@ class Rectangle:
         return self.__width
 
     @width.setter
-    def width(self, width):
+    def width(self, value):
         """Overwrites the initial value of width to the new one give
 
         Args:
-            width (int): an int value greater than 0 which will represent the new longer side of the rectangle
+            value (int): an int value greater than 0 which will represent the new longer side of the rectangle
 
         Return:
             A private instance attribute width value
         """
-        if not isinstance(width, int):
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
-        elif width < 0:
+        elif value < 0:
             raise ValueError("width must be >= 0")
-        self.__width = width
+        self.__width = value
 
     @property
     def height(self):
@@ -42,17 +42,24 @@ class Rectangle:
         return self.__height
 
     @height.setter
-    def height(self, height):
+    def height(self, value):
         """Overwrites the initial value of height to the new one give
 
         Args:
-            height (int): an int value greater than 0 which will represent the new longer side of the rectangle
+            value (int): an int value greater than 0 which will represent the new longer side of the rectangle
 
         Return:
             A private instance attribute width value
         """
-        if not isinstance(height, int):
+        if not isinstance(value, int):
             raise TypeError("height must be an integer")
-        elif width < 0:
+        elif value < 0:
             raise ValueError("height must be >= 0")
-        self.__height = height
+        self.__height = value
+
+my_rectangle = Rectangle(2, 4)
+print(my_rectangle.__dict__)
+
+my_rectangle.width = 10
+my_rectangle.height = 3
+print(my_rectangle.__dict__)
