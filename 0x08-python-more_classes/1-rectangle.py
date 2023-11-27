@@ -42,7 +42,7 @@ class Rectangle:
         return self.__height
 
     @height.setter
-    def width(self, height):
+    def height(self, height):
         """Overwrites the initial value of height to the new one give
 
         Args:
