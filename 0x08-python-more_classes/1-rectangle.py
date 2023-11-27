@@ -25,7 +25,8 @@ class Rectangle:
         """Overwrites the initial value of width to the new one give
 
         Args:
-            value (int): an int value greater than 0 which will represent the new longer side of the rectangle
+            value (int): an int value greater than 0
+                which will represent the new longer side of the rectangle
 
         Return:
             A private instance attribute width value
@@ -46,7 +47,8 @@ class Rectangle:
         """Overwrites the initial value of height to the new one give
 
         Args:
-            value (int): an int value greater than 0 which will represent the new longer side of the rectangle
+            value (int): an int value greater than 0
+                which will represent the new longer side of the rectangle
 
         Return:
             A private instance attribute width value
@@ -56,10 +58,3 @@ class Rectangle:
         elif value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-
-my_rectangle = Rectangle(2, 4)
-print(my_rectangle.__dict__)
-
-my_rectangle.width = 10
-my_rectangle.height = 3
-print(my_rectangle.__dict__)
