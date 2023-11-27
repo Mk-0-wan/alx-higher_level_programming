@@ -139,4 +139,4 @@ class Rectangle:
         Return:
             Returns a new set values
         """
-        return cls(size, size) #for both width and height
+        return cls(size, size)  # for both width and height
