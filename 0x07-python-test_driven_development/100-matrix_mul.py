@@ -17,7 +17,7 @@ def matrix_mul(m_a, m_b):
         raise TypeError("m_a must be a list")
 
     if not all(isinstance(row, list) for row in m_b):
-        raise TypeError("m_b must be  list")
+        raise TypeError("m_b must be a list")
 
     # checking for empty matrices
     if m_a == [[]]:
@@ -34,16 +34,13 @@ def matrix_mul(m_a, m_b):
         raise TypeError("m_b should contain only integers or floats")
 
     # get the length of the first list in the matrices
-    x = len(m_a[0])
-    y = len(m_b[0])
-
     # checking for all perfect matrices
     for row in m_a:
-        if len(row) != a:
+        if len(row) != len(m_a[0]):
             raise TypeError("each row m_a must should be of the same size")
 
     for row in m_b:
-        if len(row) != b:
+        if len(row) != len(m_b[0]):
             raise TypeError("each row m_b must should be of the same size")
 
     # checking for compatibility during multiplication
