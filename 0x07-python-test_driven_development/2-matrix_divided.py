@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Matrix Operation in python3"""
 
+
 def matrix_divided(matrix, div):
     """Python function that does some division to
     each element in the matrix
@@ -29,7 +30,8 @@ def matrix_divided(matrix, div):
             return matrix
         for items in row:
             if not isinstance(items, (float, int)):
-                raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+                raise TypeError("matrix must be a matrix " +
+                                "(list of lists) of integers/floats")
                 return matrix
             else:
                 new_matrix.append(round(items / div, 2))
