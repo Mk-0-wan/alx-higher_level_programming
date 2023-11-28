@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Greetings from Python3"""
 
+
 def say_my_name(first_name, last_name=""):
     """A python function that prints out the names
     passed as arguments
