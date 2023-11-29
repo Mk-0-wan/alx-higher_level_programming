@@ -40,8 +40,24 @@ TypeError: m_a must be a list
 >>> mtx(m_a, m_b)
 Traceback (most recent call last):
 	...
-TypeError: each row m_a must be of same size
+TypeError: each row m_a must be of the same size
+>>> m_a = [[2,4,5], [2,34,5]]
 
+>>> m_b = [[3,4], [2,3,45]]
+
+>>> mtx(m_a, m_b)
+Traceback (most recent call last):
+	...
+TypeError: each row m_b must be of the same size
+
+>>> m_b = [[2,4,5], [2,34,5]]
+
+>>> m_a = [[3,4], [2,3,45]]
+
+>>> mtx(m_a, m_b)
+Traceback (most recent call last):
+	...
+TypeError: each row m_a must be of the same size
 >>> m_a = [
 ...     [1, 2],
 ...     [3, 4],
