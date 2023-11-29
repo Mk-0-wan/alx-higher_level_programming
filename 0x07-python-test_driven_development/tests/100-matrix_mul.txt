@@ -40,7 +40,7 @@ TypeError: m_a must be a list
 >>> mtx(m_a, m_b)
 Traceback (most recent call last):
 	...
-TypeError: each row m_a must be of the same size
+TypeError: each row m_a must be of same size
 
 >>> m_a = [
 ...     [1, 2],
