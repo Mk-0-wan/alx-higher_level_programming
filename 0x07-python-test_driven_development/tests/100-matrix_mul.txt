@@ -5,7 +5,7 @@
 
 >>> mtx(m_a, m_b)
 Traceback (most recent call last):
-	...
+    ...
 TypeError: m_a must be a list of lists
 
 >>> m_a = [[2,4,5]]
@@ -14,14 +14,14 @@ TypeError: m_a must be a list of lists
 
 >>> mtx(m_a, m_b)
 Traceback (most recent call last):
-	...
+    ...
 TypeError: m_b must be a list of lists
 
 >>> m_b = "shoot"
 
 >>> mtx([[12, 23, 45]], m_b)
 Traceback (most recent call last):
-	...
+    ...
 TypeError: m_b must be a list
 
 >>> m_a = "boot"
@@ -30,7 +30,7 @@ TypeError: m_b must be a list
 
 >>> mtx(m_a, m_b)
 Traceback (most recent call last):
-	...
+    ...
 TypeError: m_a must be a list
 
 >>> m_b = [[12, 12],[11, 10, 11]]
@@ -39,25 +39,9 @@ TypeError: m_a must be a list
 
 >>> mtx(m_a, m_b)
 Traceback (most recent call last):
-	...
+    ...
 TypeError: each row of m_a must be of the same size
->>> m_a = [[2,4,5], [2,34,5]]
 
->>> m_b = [[3,4], [2,3,45]]
-
->>> mtx(m_a, m_b)
-Traceback (most recent call last):
-	...
-TypeError: each row of m_b must be of the same size
-
->>> m_b = [[2,4,5], [2,34,5]]
-
->>> m_a = [[3,4], [2,3,45]]
-
->>> mtx(m_a, m_b)
-Traceback (most recent call last):
-	...
-TypeError: each row of m_a must be of the same size
 >>> m_a = [
 ...     [1, 2],
 ...     [3, 4],
@@ -75,7 +59,7 @@ TypeError: each row of m_a must be of the same size
 >>> m_b = [[]]
 >>> mtx(m_a, m_b)
 Traceback (most recent call last):
-	...
+    ...
 ValueError: m_a can't be empty
 
 >>> m_a = [
@@ -90,12 +74,12 @@ ValueError: m_a can't be empty
 
 >>> mtx(m_a, m_b)
 Traceback (most recent call last):
-	...
+    ...
 TypeError: m_a should contain only integers or floats
 
 >>> m_a = [[12, 12]]
 >>> m_b = [[12]]
 >>> mtx(m_a, m_b)
 Traceback (most recent call last):
-	...
+    ...
 ValueError: m_a and m_b can't be multiplied
