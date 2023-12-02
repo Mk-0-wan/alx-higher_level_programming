@@ -68,7 +68,7 @@ TypeError: each row of m_b must be of the same size
 >>> m_b = [[]]
 >>> mtx(m_a, m_b)
 Traceback (most recent call last):
-	...
+    ...
 ValueError: m_a can't be empty
 
 >>> m_a = [
@@ -83,12 +83,12 @@ ValueError: m_a can't be empty
 
 >>> mtx(m_a, m_b)
 Traceback (most recent call last):
-	...
+    ...
 TypeError: m_a should contain only integers or floats
 
 >>> m_a = [[12, 12]]
 >>> m_b = [[12]]
 >>> mtx(m_a, m_b)
 Traceback (most recent call last):
-	...
+    ...
 ValueError: m_a and m_b can't be multiplied
