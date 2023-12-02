@@ -98,3 +98,9 @@ ValueError: m_a and m_b can't be multiplied
 Traceback (most recent call last):
 	...
 TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+
+>>> m_b = [[]]
+>>> mtx(m_b)
+Traceback (most recent call last):
+	...
+TypeError: matrix_mul() missing 1 required positional argument: 'm_a'
