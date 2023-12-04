@@ -7,7 +7,7 @@ you are able to mutate them with the super()
 """
 
 
-class MyInt(type(3)):
+class MyInt(int):
     """MyInt is a class that renegade
     some of the int class function
     """
