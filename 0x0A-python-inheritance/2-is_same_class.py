@@ -15,4 +15,4 @@ def is_same_class(obj, a_class) -> bool:
     """
     if obj is None or a_class is None:
         return
-    return isinstance(obj, a_class) or issubclass(type(obj), a_class)
+    return isinstance(obj, a_class) and type(obj) == a_class
