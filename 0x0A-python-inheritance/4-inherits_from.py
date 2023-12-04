@@ -14,5 +14,5 @@ def inherits_from(obj, a_class):
         a bool if an object is both an instance of that
         class or a subclass of that class
     """
-    if obj:
+    if obj and a_class:
         return issubclass(obj.__class__, a_class) or isinstance(obj, a_class)
