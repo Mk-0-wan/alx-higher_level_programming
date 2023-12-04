@@ -4,6 +4,6 @@ Listing all the attributes of an object
 """
 
 
-def lookup(obj) -> list:
+def lookup(obj):
     """List out all the builtin attributes of an object"""
     return dir(obj)
