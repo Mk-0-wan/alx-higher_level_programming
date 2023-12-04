@@ -19,4 +19,4 @@ class MyList(list):
             the largest in the list
         """
         s_list = super().copy()
-        print(sorted(s_list))
+        print(sorted(map(int, s_list)))
