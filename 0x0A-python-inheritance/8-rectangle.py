@@ -10,8 +10,8 @@ class Rectangle(BaseGeometry):
     def __init__(self, width, height):
         """initializing instance variables
         Args:
-            width (int): integer for the longest side of the Rectangle
-            height (int): integer value for the shortest side
+            width (int): integer width side of the Rectangle
+            height (int): integer height value of the Rectangle
         """
         self.integer_validator("width", width)
         self.integer_validator("height", height)
