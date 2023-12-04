@@ -2,7 +2,7 @@
 """Instance checking"""
 
 
-def is_same_class(obj, a_class) -> bool:
+def is_same_class(obj, a_class):
     """Shows the kind of relation each instance has with
     a specific type of class there is
 
