@@ -25,7 +25,7 @@ class MyInt(int):
             of the != to == operation hence unexpected behavior
             is to be expected
         """
-        super().__eq__(other)
+        return super().__eq__(other)
 
     def __eq__(self, other) -> bool:
         """A python builtin function which checks if two
@@ -40,4 +40,4 @@ class MyInt(int):
             of the == to != operation hence unexpected behavior
             is to be expected
         """
-        super().__ne__(other)
+        return super().__ne__(other)
