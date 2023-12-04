@@ -23,12 +23,13 @@ class BaseGeometry:
         Return:
             raises some exception errors
         """
-        if type(value) is not int: # checks for the exact class
+        if type(value) is not int:
+            # checks for the exact class
             raise TypeError("{:s} must be an integer".format(name))
         elif value <= 0:
             raise ValueError("{:s} must be greater than 0".format(name))
 
-# no use of builtin commands
+
 class Rectangle(BaseGeometry):
     """Simple geometry class that inherits BaseGeometry"""
 
@@ -39,6 +40,6 @@ class Rectangle(BaseGeometry):
             height (int): integer height value of the Rectangle
         """
         self.integer_validator("width", width)
-        self.integer_validator("height", height)
         self.__width = width
+        self.integer_validator("height", height)
         self.__height = height
