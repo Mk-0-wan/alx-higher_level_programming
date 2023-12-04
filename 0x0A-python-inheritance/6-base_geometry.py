@@ -9,7 +9,7 @@ class BaseGeometry:
         """initializes the class"""
         pass
 
-    def area(self)
+    def area(self):
         """simple area function that raises an
         exception error
         """
