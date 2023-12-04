@@ -23,5 +23,5 @@ class Rectangle(BaseGeometry):
 
     def __str__(self):
         """in built string function"""
-        return "[{}]{}/{}".format(self.__class__.__name__,
+        return "[{}] {}/{}".format(self.__class__.__name__,
                                   self.__width, self.__height)
