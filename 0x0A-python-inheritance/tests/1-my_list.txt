@@ -14,3 +14,17 @@
 >>> ml.append(1)
 >>> ml.print_sorted()
 [1, 1, 2, 3, 5, 13, 21, 53]
+>>> ml.append(2)
+>>> ml.append(4)
+>>> ml.append(23)
+>>> ml.append(8)
+>>> ml.append(23)
+>>> ml.print_sorted()
+[2, 4, 8, 23, 23]
+>>> ml.pop()
+23
+>>> x = ml.copy()
+>>> x.print_sorted()
+Traceback (most recent call last):
+	...
+AttributeError: 'list' object has no attribute 'print_sorted'
