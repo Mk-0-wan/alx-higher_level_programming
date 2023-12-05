@@ -14,4 +14,4 @@ def save_to_json_file(my_obj, filename):
         number of chars written by the user
     """
     with open(filename, "w", encoding="utf-8") as fp:
-       return json.dump(my_obj, fp)
+        return json.dump(my_obj, fp)
