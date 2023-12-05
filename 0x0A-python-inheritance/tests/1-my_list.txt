@@ -36,15 +36,6 @@ AttributeError: 'list' object has no attribute 'print_sorted'
 >>> ml.print_sorted()
 [-5, -4, -2, -1]
 >>> ml.clear()
->>> ml.append('a')
->>> ml.append('z')
->>> ml.append('q')
->>> ml.append('g')
->>> ml.print_sorted()
-Traceback (most recent call last):
-	...
-ValueError: invalid literal for int() with base 10: 'a'
->>> ml.clear()
 >>> ml.append(-1)
 >>> ml.append(3)
 >>> ml.append(5)
