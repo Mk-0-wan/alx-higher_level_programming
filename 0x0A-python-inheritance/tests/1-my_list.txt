@@ -29,3 +29,43 @@
 Traceback (most recent call last):
 	...
 AttributeError: 'list' object has no attribute 'print_sorted'
+>>> ml.append(-1)
+>>> ml.append(-5)
+>>> ml.append(-2)
+>>> ml.append(-4)
+>>> ml.print_sorted()
+[-5, -4, -2, -1]
+>>> ml.clear()
+>>> ml.append('a')
+>>> ml.append('z')
+>>> ml.append('q')
+>>> ml.append('g')
+>>> ml.print_sorted()
+Traceback (most recent call last):
+	...
+ValueError: invalid literal for int() with base 10: 'a'
+>>> ml.clear()
+>>> ml.append(-1)
+>>> ml.append(3)
+>>> ml.append(5)
+>>> ml.append(2)
+>>> ml.print_sorted()
+[-1, 2, 3, 5]
+>>> ml.clear()
+>>> ml.append(5)
+>>> ml.append(2)
+>>> ml.append(5)
+>>> ml.append(-2)
+>>> ml.print_sorted
+>>> ml.print_sorted()
+[-2, 2, 5, 5]
+>>> ml.clear()
+>>> ml.append(3)
+>>> ml.append(33)
+>>> ml.append(4)
+>>> ml.append(-4)
+>>> ml.append(2)
+>>> ml.append(9)
+>>> ml.append(7)
+>>> ml.print_sorted()
+[-4, 2, 3, 4, 7, 9, 33]
