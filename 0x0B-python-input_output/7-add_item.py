@@ -17,5 +17,6 @@ def read_write_to_json():
 
     save_to_json_file(lst, "add_item.json")
 
+
 if __name__ == "__main__":
     read_write_to_json()
