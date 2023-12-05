@@ -29,6 +29,7 @@
 Traceback (most recent call last):
 	...
 AttributeError: 'list' object has no attribute 'print_sorted'
+>>> ml.clear()
 >>> ml.append(-1)
 >>> ml.append(-5)
 >>> ml.append(-2)
@@ -47,7 +48,6 @@ AttributeError: 'list' object has no attribute 'print_sorted'
 >>> ml.append(2)
 >>> ml.append(5)
 >>> ml.append(-2)
->>> ml.print_sorted
 >>> ml.print_sorted()
 [-2, 2, 5, 5]
 >>> ml.clear()
