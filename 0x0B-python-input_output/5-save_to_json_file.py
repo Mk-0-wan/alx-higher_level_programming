@@ -15,6 +15,6 @@ def save_to_json_file(my_obj, filename):
     """
     try:
         with open(filename, "w", encoding="utf-8") as fp:
-            fp.write(json.dumps(my_obj))
+            return fp.write(json.dumps(my_obj))
     except TypeError:
         raise TypeError("{} is not JSON serializable".format(my_obj))
