@@ -22,7 +22,7 @@ class Student:
             return self.__dict__
         if not isinstance(attrs, list):
             return self.__dict__
-        if not isinstance(attrs[i], str) for i in attrs:
+        if not (isinstance(attrs[i], str) for i in attrs):
             return self.__dict__
         return ({key: value
                  for key, value in self.__dict__.items() if key in attrs})
