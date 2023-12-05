@@ -27,7 +27,7 @@ class Student:
         return ({key: value
                  for key, value in self.__dict__.items() if key in attrs})
 
-    def relaod_from_json(self, json):
+    def reload_from_json(self, json):
         """Adding a json format dictionary to the class attributes
         Args:
             json: json formatted dict values
