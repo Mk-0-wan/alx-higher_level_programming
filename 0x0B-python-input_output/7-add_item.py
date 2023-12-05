@@ -10,7 +10,7 @@ def read_write_to_json():
     """simple python function that writes to a file"""
     try:
         lst = load_from_json_file("add_item.json")
-    except:
+    except Exception:
         lst = []
 
     lst.extend([sys.argv[i] for i in range(len(sys.argv)) if i != 0])
