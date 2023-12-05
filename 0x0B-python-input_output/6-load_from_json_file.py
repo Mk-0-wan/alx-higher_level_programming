@@ -13,5 +13,5 @@ def load_from_json_file(filename):
          a json formatted data from python string object
     """
     with open(filename, "r", encoding="utf-8") as fp:
-       x = json.load(fp)
-    return x
+        py_data = json.load(fp)
+    return py_data
