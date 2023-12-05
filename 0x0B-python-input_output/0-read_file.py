@@ -4,6 +4,6 @@
 
 def read_file(filename=""):
     """function that reads all the contents of a file"""
-    if filename is str:
+    if filename.__class__ is str:
         with open(filename, encoding="utf-8") as fp:
             print(fp.read().strip())
