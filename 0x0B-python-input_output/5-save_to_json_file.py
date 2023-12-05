@@ -13,8 +13,5 @@ def save_to_json_file(my_obj, filename):
     Return:
         number of chars written by the user
     """
-    try:
-        with open(filename, "w", encoding="utf-8") as fp:
-            json.dump(my_obj, fp)
-    except TypeError:
-        raise TypeError("{} is not JSON serializable".format(my_obj))
+    with open(filename, "w", encoding="utf-8") as fp:
+       return json.dump(my_obj, fp)
