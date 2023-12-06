@@ -18,11 +18,10 @@ class Student:
 
     def to_json(self, attrs=None):
         """A dictionary representation of the class attributes"""
-        if attrs is None:
-            return self.__dict__
-        if not isinstance(attrs, list):
-            return self.__dict__
-        if not (isinstance(attrs[i], str) for i in attrs):
-            return self.__dict__
-        return ({key: value
-                 for key, value in self.__dict__.items() if key in attrs})
+        if attrs is not None and all(isinstance(attrs, list)
+                                     or isinstance(attrs[i], str)
+                                     for i in attrs):
+            return ({key: value
+                     for key, value in self.__dict__.items() if key in attrs})
+
+        return self.__dict__
