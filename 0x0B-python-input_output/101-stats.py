@@ -43,8 +43,9 @@ def printer(sorted_status_code, total_size):
 
 
 # Entry point
-while True:
-    status_codes_counter = collections.Counter()
+if __name__=="__main__":
+    while True:
+        status_codes_counter = collections.Counter()
     total_size = 0
     try:
         for _ in range(10):
