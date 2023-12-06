@@ -43,10 +43,7 @@ if __name__ == "__main__":
         if (n) % 10 != 0:
             status_totals = dict(sorted(status_x.items()))
             printer(status_totals, total_size)
-    except EOFError:
-        status_totals = dict(sorted(status_x.items()))
-        printer(status_totals, total_size)
-    except KeyboardInterrupt:
+    except (EOFError, KeyboardInterrupt):
         status_totals = dict(sorted(status_x.items()))
         printer(status_totals, total_size)
         pass
