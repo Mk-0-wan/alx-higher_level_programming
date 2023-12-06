@@ -37,9 +37,9 @@ def printer(sorted_status_code, total_size):
         total_size (int): total value of all the first ten
         codes
     """
-    print("File size: {}".format(total_size))
+    print("File size: {:d}".format(total_size))
     for code, count in status_totals:
-        print("{}: {}".format(code, count))
+        print("{:d}: {:d}".format(code, count))
 
 
 # Entry point
