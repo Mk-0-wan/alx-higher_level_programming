@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-#!/usr/bin/python3
 """Simple Status Code logger written in python"""
 
 
@@ -26,7 +25,6 @@ if __name__ == "__main__":
             try:
                 try:
                     line = line.split()
-                    # status code is the key
                     key = line[-2]
                     total_size += int(line[-1])
                     if key not in status_x:
@@ -52,4 +50,3 @@ if __name__ == "__main__":
         status_totals = dict(sorted(status_x.items()))
         printer(status_totals, total_size)
         pass
-
