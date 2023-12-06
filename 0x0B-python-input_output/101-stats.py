@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Simple Status Code logger written in python"""
 import re  # pattern finding
 import collections  # faster dictionary creation
 import operator  # for faster item retrival from dict
