@@ -1,32 +1,6 @@
 #!/usr/bin/python3
+#!/usr/bin/python3
 """Simple Status Code logger written in python"""
-import re  # pattern finding
-import collections  # faster dictionary creation
-import operator  # for faster item retrival from dict
-
-
-def parse_input(line):
-    """Parses the inputs and return the status codes
-    file size
-    Args:
-        line (str): data from the standard input
-    Return:
-        returns the file size and the status code inside
-        the line data from stdinput
-    """
-    # Define a regular expression to extract relevant information
-    pattern = re.compile(r'(\d+\.\d+\.\d+\.\d+) - \[(.*?)\] \
-            "GET /projects/260 HTTP/1.1" (\d+) (\d+)')
-    # Use the regular expression to match the pattern
-    match = pattern.match(line)
-
-    if match:
-        # Extract information from the match object
-        ip_address, date, status_code, file_size = match.groups()
-
-        return file_size, status_code
-    else:
-        return None
 
 
 def printer(sorted_status_code, total_size):
@@ -37,27 +11,45 @@ def printer(sorted_status_code, total_size):
         total_size (int): total value of all the first ten
         codes
     """
-    print("File size: {:d}".format(total_size))
-    for code, count in status_totals:
-        print("{:d}: {:d}".format(code, count))
+    print("File size: {}".format(total_size))
+    for code, count in status_totals.items():
+        print("{}: {}".format(code, count))
 
 
 # Entry point
-if __name__=="__main__":
-    while True:
-        status_codes_counter = collections.Counter()
+if __name__ == "__main__":
     total_size = 0
+    n = -1
+    status_x = {}
     try:
-        for _ in range(10):
-            line = input()
-            result = parse_input(line)
-            if result is None:
-                break
-            total_size += int(result[0])
-            status_codes_counter.update([result[1]])
-
-        status_totals = sorted(status_codes_counter.items(),
-                               key=operator.itemgetter(0))
+        while (line := input()):
+            try:
+                try:
+                    line = line.split()
+                    # status code is the key
+                    key = line[-2]
+                    total_size += int(line[-1])
+                    if key not in status_x:
+                        status_x[key] = 1
+                    else:
+                        status_x[key] += 1
+                    n += 1
+                except (ValueError, TypeError):
+                    continue
+                if (n + 1) % 10 == 0:
+                    status_totals = dict(sorted(status_x.items()))
+                    printer(status_totals, total_size)
+            except KeyboardInterrupt:
+                status_totals = dict(sorted(status_x.items()))
+                printer(status_totals, total_size)
+        if (n) % 10 != 0:
+            status_totals = dict(sorted(status_x.items()))
+            printer(status_totals, total_size)
+    except EOFError:
+        status_totals = dict(sorted(status_x.items()))
         printer(status_totals, total_size)
     except KeyboardInterrupt:
+        status_totals = dict(sorted(status_x.items()))
         printer(status_totals, total_size)
+        pass
+
