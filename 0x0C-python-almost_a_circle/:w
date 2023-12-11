@@ -100,12 +100,14 @@ class Rectangle(Base):
         if self.width == 0 or self.height == 0:
             print("")
         x_val = self.x
+        print(x_val)
         y_val = self.y
+        print(y_val)
         # print(f'{x_val} * {y_val} = {x_val * y_val}')
-        if y_val > 0:
+        if x_val > 0:
             print("\n" * y_val) # to remove the zero index
         for _ in range(self.height):
-            print(" " * x_val + "#" * self.width)
+            print(" " * (x_val, y_val)[x_val == 0] + "#" * self.width)
 
     def __str__(self):
         """How to print out the file it the specified order"""
