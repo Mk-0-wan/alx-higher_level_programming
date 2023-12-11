@@ -103,7 +103,7 @@ class Rectangle(Base):
         y_val = self.y
         # print(f'{x_val} * {y_val} = {x_val * y_val}')
         if y_val > 0:
-            print("\n" * y_val) # to remove the zero index
+            print("\n" * y_val, end='') # to remove the zero index
         for _ in range(self.height):
             print(" " * x_val + "#" * self.width)
 
