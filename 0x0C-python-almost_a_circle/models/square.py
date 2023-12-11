@@ -27,6 +27,7 @@ class Square(Rectangle, Base):
     def size(self, value):
         """Setter function for the new value"""
         self.width = value
+        self.height = value
 
     def update(self, *args, **kwargs):
         """Updates all the instances variables
@@ -35,36 +36,30 @@ class Square(Rectangle, Base):
             values for the instance variable
             kwargs (mapping): key value pairs
         """
-        approved_set = {'id', 'size', 'x', 'y'}
+        # approved_set = {'id', 'size', 'x', 'y'}
         attribute_order = ['id', 'size', 'x', 'y']
 
-        updated_attrs = {
-                         attrs_key: attrs_value
-                         for (attrs_key, attrs_value) in kwargs.items()
-                         if attrs_key in approved_set
-                         }
-
-        for key, value in updated_attrs.items():
-            setattr(self, key, value)
-
         for indx, ag_r in enumerate(args):
-            setattr(self, attribute_order[indx], ag_r)
+            if indx < len(attribute_order):
+                setattr(self, attribute_order[indx], ag_r)
+
+        if args:
+            return
+
+        for key, value in kwargs.items():
+            if key in attribute_order:
+                setattr(self, key, value)
 
     def to_dictionary(self):
         """returns all the instance attributes as dictionary"""
-        new_dict = {}
 
-        for attr, value in self.__dict__.items():
-            new_dict[attr.replace('_Rectangle__', '')] = value
-
-        if "size" not in new_dict.keys():
-            new_dict["size"] = new_dict["width"]
-            del new_dict["width"]
-            del new_dict["height"]
+        new_dict = {
+                k: getattr(self, k)
+                for k in ['x', 'size', 'y', 'id']
+            }
 
         return new_dict
 
     def __str__(self):
         name = type(self).__name__
-        # TODO: value differ task 13
         return f"[{name}] ({self.id}) {self.x}/{self.y} - {self.size}"

@@ -66,13 +66,11 @@ class Base():
             result_to_write = {}
 
             for obj in list_objs:
-                for attr, value in obj.__dict__.items():
-                    result_to_write[attr.replace('_Rectangle__', '')] = value
-                lst.append(result_to_write)
+                result_to_write = obj.to_dictionary()
+
+            lst.append(result_to_write)
             json_to_write = cls.to_json_string(lst)
             file_pointer.write(json_to_write)
-            # # TODO:  11-12-23, Mk :check with others if you are supposed to
-            # add a new line at the end of your file
 
     @staticmethod
     def from_json_string(json_string):
@@ -80,8 +78,9 @@ class Base():
         Args:
             json_string: a string representation in json format
         """
-        if json_string is None or json_string == "" or \
-            not isinstance(json_string, str):
+        if json_string is None:
+            return []
+        if json_string == "" or not isinstance(json_string, str):
             return []
         return json.loads(json_string)
 
@@ -96,26 +95,33 @@ class Base():
             returns the dummy instance which was created on the fly
         """
         # create a new instance object
-        dummy = cls.__new__(cls)
-        dummy.update(**dictionary)
-        return dummy
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+            dummy.update(**dictionary)
+            return dummy
+        if cls.__name__ == "Square":
+            dummy = cls(1)
+            dummy.update(**dictionary)
+            return dummy
 
     @classmethod
     def load_from_file(cls):
         """Loads from a json file and then creates the class
         instances from the attributes loaded from file
-        Args:
+        Args
             cls (class): a class instance
         Return:
             returns a list of instances
         """
         file_name = f"{cls.__name__}.json"
-        with open(file_name, "r", encoding="utf-8") as f_pointer:
-            lst = f_pointer.read()
+        try:
+            with open(file_name, "r", encoding="utf-8") as f_pointer:
 
-            if lst is None:
-                return []
+                lst = f_pointer.read()
 
-            py_lst = cls.from_json_string(lst)
-            dummy = [cls.create(**dicts) for dicts in py_lst]
-            return dummy
+                py_lst = cls.from_json_string(lst)
+                dummy = [cls.create(**dicts) for dicts in py_lst]
+
+                return dummy
+        except Exception:
+            return []

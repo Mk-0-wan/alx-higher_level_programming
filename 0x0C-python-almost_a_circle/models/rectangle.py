@@ -103,7 +103,7 @@ class Rectangle(Base):
         y_val = self.y
         # print(f'{x_val} * {y_val} = {x_val * y_val}')
         if y_val > 0:
-            print("\n" * y_val, end='') # to remove the zero index
+            print("\n" * y_val, end='')
         for _ in range(self.height):
             print(" " * x_val + "#" * self.width)
 
@@ -121,26 +121,23 @@ class Rectangle(Base):
             kwargs (mapping): key value pairs
         """
         # avoid duplicate values
-        approved_set = {'id', 'width', 'height', 'x', 'y'}
         attribute_order = ['id', 'width', 'height', 'x', 'y']
 
-        updated_attrs = {
-                         attrs_key: attrs_value
-                         for (attrs_key, attrs_value) in kwargs.items()
-                         if attrs_key in approved_set
-                         }
-
-        for key, value in updated_attrs.items():
-            setattr(self, key, value)
-
         for indx, ag_r in enumerate(args):
-            setattr(self, attribute_order[indx], ag_r)
+            if indx < len(attribute_order):
+                setattr(self, attribute_order[indx], ag_r)
+
+        if args:
+            return
+
+        for key, value in kwargs.items():
+            if key in attribute_order:
+                setattr(self, key, value)
 
     def to_dictionary(self):
         """returns all the instance attributes as dictionary"""
-        new_dict = {}
-
-        for attr, value in self.__dict__.items():
-            new_dict[attr.replace('_Rectangle__', '')] = value
-
+        new_dict = {
+                k: getattr(self, k)
+                for k in ['x', 'width', 'y', 'id', 'height']
+                }
         return new_dict
