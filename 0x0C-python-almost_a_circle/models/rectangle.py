@@ -97,15 +97,15 @@ class Rectangle(Base):
 
     def display(self) -> None:
         """Prints the the result in an ascii form"""
-        if self.__width == 0 or self.__height == 0:
+        if self.width == 0 or self.height == 0:
             print("")
-        x_val = self.__x
-        y_val = self.__y
+        x_val = self.x
+        y_val = self.y
         # print(f'{x_val} * {y_val} = {x_val * y_val}')
         if x_val > 0:
-            print("\n" * int((x_val * y_val)))  # to remove the zero index
+            print("\n" * int((x_val * y_val) - 1)) # to remove the zero index
         for _ in range(self.__height):
-            print(" " * (x_val, y_val)[x_val == 0] + "#" * self.__width)
+            print(" " * (x_val, y_val)[x_val == 0] + "#" * self.width)
 
     def __str__(self):
         """How to print out the file it the specified order"""
