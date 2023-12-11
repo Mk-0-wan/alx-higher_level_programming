@@ -56,20 +56,20 @@ class Base():
             cls (class): classmethod
             list_objs (list): python list object to turn into a json format
         """
-        lst = []
-        result_to_write = {}
-
-        for obj in list_objs:
-            for attr, value in obj.__dict__.items():
-                result_to_write[attr.replace('_Rectangle__', '')] = value
-            lst.append(result_to_write)
-        json_to_write = cls.to_json_string(lst)
-        # print("------------------")
-        # print(type(json_to_write))
-        # print("------------------")
         filename = f"{cls.__name__}.json"
 
-        with open(filename, "a", encoding="utf-8") as file_pointer:
+        with open(filename, "w", encoding="utf-8") as file_pointer:
+            lst = []
+            if list_objs is None:
+                file_pointer.write(cls.to_json_string(lst))
+
+            result_to_write = {}
+
+            for obj in list_objs:
+                for attr, value in obj.__dict__.items():
+                    result_to_write[attr.replace('_Rectangle__', '')] = value
+                lst.append(result_to_write)
+            json_to_write = cls.to_json_string(lst)
             file_pointer.write(json_to_write)
             # # TODO:  11-12-23, Mk :check with others if you are supposed to
             # add a new line at the end of your file
@@ -80,6 +80,9 @@ class Base():
         Args:
             json_string: a string representation in json format
         """
+        if json_string is None or json_string == "" or \
+            not isinstance(json_string, str):
+            return []
         return json.loads(json_string)
 
     @classmethod
@@ -92,7 +95,6 @@ class Base():
         Return:
             returns the dummy instance which was created on the fly
         """
-        # /home/vic/work/alx-higher_level_programming/0x0C-python-almost_a_circle
         # create a new instance object
         dummy = cls.__new__(cls)
         dummy.update(**dictionary)
