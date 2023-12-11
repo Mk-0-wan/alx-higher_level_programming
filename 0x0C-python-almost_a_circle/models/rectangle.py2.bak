@@ -21,23 +21,24 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+
     @property
-    def width(self):
+    def width(self) -> int:
         """Simple width getter"""
         return self.__width
 
     @property
-    def height(self):
+    def height(self) -> int:
         """Simple height getter"""
         return self.__height
 
     @property
-    def x(self):
+    def x(self) -> int:
         """Simple x getter"""
         return self.__x
 
     @property
-    def y(self):
+    def y(self) -> int:
         """Simple y getter"""
         return self.__y
 
@@ -51,6 +52,7 @@ class Rectangle(Base):
         """
         self.param_validator('width', value)
         self.__width = value
+        return self.__width
 
     @height.setter
     def height(self, value):
@@ -62,6 +64,7 @@ class Rectangle(Base):
         """
         self.param_validator('height', value)
         self.__height = value
+        return self.__height
 
     @x.setter
     def x(self, value):
@@ -71,11 +74,12 @@ class Rectangle(Base):
         Return:
             returns a new mangled width for the instance variable
         """
-        if not isinstance(value, int):
+        if not isinstance(value , int):
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
         self.__x = value
+        return self.__x
 
     @y.setter
     def y(self, value):
@@ -85,62 +89,9 @@ class Rectangle(Base):
         Return:
             returns a new mangled width for the instance variable
         """
-        if not isinstance(value, int):
+        if not isinstance(value , int):
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
-
-    def area(self):
-        """returns the area of a Rectangle"""
-        return self.__width * self.__height
-
-    def display(self) -> None:
-        """Prints the the result in an ascii form"""
-        if self.__width == 0 or self.__height == 0:
-            print("")
-        x_val = self.__x
-        y_val = self.__y
-        # print(f'{x_val} * {y_val} = {x_val * y_val}')
-        if x_val > 0:
-            print("\n" * int((x_val * y_val)))  # to remove the zero index
-        for _ in range(self.__height):
-            print(" " * (x_val, y_val)[x_val == 0] + "#" * self.__width)
-
-    def __str__(self):
-        """How to print out the file it the specified order"""
-        cls_name = type(self).__name__
-        return f"[{cls_name}] ({self.id}) {self.__x}/{self.__y} \
-- {self.__width}/{self.__height}"
-
-    def update(self, *args, **kwargs):
-        """Updates all the instances variables
-        Args:
-            args (tuple): a list of tuple that will be used to assign
-            values for the instance variable
-            kwargs (mapping): key value pairs
-        """
-        # avoid duplicate values
-        approved_set = {'id', 'width', 'height', 'x', 'y'}
-        attribute_order = ['id', 'width', 'height', 'x', 'y']
-
-        updated_attrs = {
-                         attrs_key: attrs_value
-                         for (attrs_key, attrs_value) in kwargs.items()
-                         if attrs_key in approved_set
-                         }
-
-        for key, value in updated_attrs.items():
-            setattr(self, key, value)
-
-        for indx, ag_r in enumerate(args):
-            setattr(self, attribute_order[indx], ag_r)
-
-    def to_dictionary(self):
-        """returns all the instance attributes as dictionary"""
-        new_dict = {}
-
-        for attr, value in self.__dict__.items():
-            new_dict[attr.replace('_Rectangle__', '')] = value
-
-        return new_dict
+        return self.__y
