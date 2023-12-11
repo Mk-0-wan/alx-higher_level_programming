@@ -42,7 +42,7 @@ class Base():
         """from a python object to a json string"""
         lst = []
         if list_dictionaries is None:
-            return lst
+            return "[]"
 
         for dicts in list_dictionaries:
             lst.append(dicts)
