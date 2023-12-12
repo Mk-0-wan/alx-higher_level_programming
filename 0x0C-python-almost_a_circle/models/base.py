@@ -58,17 +58,15 @@ class Base():
         """
         filename = f"{cls.__name__}.json"
 
-        with open(filename, "w", encoding="utf-8") as file_pointer:
-            lst = []
-            if list_objs is None:
-                file_pointer.write(cls.to_json_string(lst))
-
+        lst = []
+        if list_objs:
             for obj in list_objs:
                 if issubclass(type(obj), Base):
                     lst.append(obj.to_dictionary())
 
-            json_to_write = cls.to_json_string(lst)
-            file_pointer.write(json_to_write)
+        lst = cls.to_json_string(lst)
+        with open(filename, "w", encoding="utf-8") as file_pointer:
+            file_pointer.write(lst)
 
     @staticmethod
     def from_json_string(json_string):
