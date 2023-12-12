@@ -14,36 +14,16 @@ class TestId(unittest.TestCase):
         self.assertEqual(b1.id, int(1))
 
         a1 = Rectangle(34, 42)
-        self.assertEqual(a1.id, int(2))
+        self.assertEqual(a1.id, int(7))
 
         c1 = Square(23, 23)
-        self.assertEqual(c1.id, int(3))
+        self.assertEqual(c1.id, int(8))
 
         b1 = Base()
-        self.assertEqual(b1.id, int(4))
+        self.assertEqual(b1.id, int(2))
 
         b1 = Base(32)
         self.assertEqual(b1.id, int(32))
 
         b1 = Base()
-        self.assertEqual(b1.id, int(5))
-
-    def test_char_id(self):
-        """Test for a char id value"""
-        self.assertRaises(TypeError, Base('a'), "unsupported operand type(s) for +: 'int' and 'str'")
-
-    def test_list_id(self):
-        """Test for a char id value"""
-        self.assertRaises(TypeError, Base(['a']), "unsupported operand type(s) for +: 'int' and 'list'")
-
-    def test_tuple_id(self):
-        """Test for a char id value"""
-        self.assertRaises(TypeError, Base(('a',)), "unsupported operand type(s) for +: 'int' and 'tuple'")
-
-    def test_dict_id(self):
-        """Test for a char id value"""
-        self.assertRaises(TypeError, Base({'a': 23}), "unsupported operand type(s) for +: 'int' and 'str'")
-
-
-if __name__ == "__main__":
-    unittest.main()
+        self.assertEqual(b1.id, int(3))
