@@ -66,8 +66,9 @@ class Base():
             result_to_write = {}
 
             for obj in list_objs:
-                result_to_write = obj.to_dictionary()
-                lst.append(result_to_write)
+                if isinstance(obj, cls):
+                    result_to_write = obj.to_dictionary()
+                    lst.append(result_to_write)
 
             json_to_write = cls.to_json_string(lst)
             file_pointer.write(json_to_write)
