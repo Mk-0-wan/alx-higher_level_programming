@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Base class for all the other classes"""
 import json
+import csv
 
 
 class Base():
@@ -121,3 +122,50 @@ class Base():
                 return dummy
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """saves all the list objects to a csv fil
+        Args:
+            list_objs(Objects): a list of python objects
+        """
+        filename = f"{cls.__name__}.json"
+
+        if cls.__name__ == "Rectangle":
+            header = ['id', 'width', 'height', 'x', 'y']
+        else:
+            header = ['id', 'size', 'x', 'y']
+
+        with open(filename, "w", newline='') as csv_file_pointer:
+            if list_objs:
+                dict_csv = csv.DictWriter(csv_file_pointer, fieldnames=header)
+                dict_csv.writeheader()
+                for obj in list_objs:
+                    if issubclass(type(obj), Base):
+                        dict_csv.writerow(obj.to_dictionary())
+            else:
+                dict_csv.writerow([[]])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """saves all the list objects to a csv fil
+        Args:
+            list_objs(Objects): a list of python objects
+        """
+        filename = f"{cls.__name__}.json"
+        try:
+            with open(filename, 'r') as csv_file:
+                # extract the data in dict format
+                dict_data = csv.DictReader(csv_file)
+                # extract each line from the dict_data
+                new_list = [
+                        {
+                            key: int(value)
+                            for key, value in line.items()
+                        }
+                        for line in dict_data
+                    ]
+                # create a new instance using the create function
+                return ([cls.create(**dicts) for dicts in new_list])
+        except FileExistsError:
+            return [[]]
