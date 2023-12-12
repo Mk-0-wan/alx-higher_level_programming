@@ -63,12 +63,9 @@ class Base():
             if list_objs is None:
                 file_pointer.write(cls.to_json_string(lst))
 
-            result_to_write = {}
-
             for obj in list_objs:
                 if type(obj) is cls:
-                    result_to_write = obj.to_dictionary()
-                    lst.append(result_to_write)
+                    lst.append(obj.to_dictionary())
 
             json_to_write = cls.to_json_string(lst)
             file_pointer.write(json_to_write)
@@ -124,5 +121,5 @@ class Base():
                 dummy = [cls.create(**dicts) for dicts in py_lst]
 
                 return dummy
-        except Exception:
+        except FileNotFoundError:
             return []
