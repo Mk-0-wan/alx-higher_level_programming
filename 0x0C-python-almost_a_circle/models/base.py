@@ -64,7 +64,7 @@ class Base():
                 file_pointer.write(cls.to_json_string(lst))
 
             for obj in list_objs:
-                if type(obj) is cls:
+                if issubclass(type(obj), Base):
                     lst.append(obj.to_dictionary())
 
             json_to_write = cls.to_json_string(lst)
