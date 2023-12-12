@@ -14,16 +14,16 @@ class TestId(unittest.TestCase):
         self.assertEqual(b1.id, int(1))
 
         a1 = Rectangle(34, 42)
-        self.assertEqual(a1.id, int(7))
+        self.assertEqual(a1.id, int(2))
 
         c1 = Square(23, 23)
-        self.assertEqual(c1.id, int(8))
+        self.assertEqual(c1.id, int(3))
 
         b1 = Base()
-        self.assertEqual(b1.id, int(2))
+        self.assertEqual(b1.id, int(4))
 
         b1 = Base(32)
         self.assertEqual(b1.id, int(32))
 
         b1 = Base()
-        self.assertEqual(b1.id, int(3))
+        self.assertEqual(b1.id, int(5))
