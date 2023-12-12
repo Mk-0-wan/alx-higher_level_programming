@@ -66,7 +66,7 @@ class Base():
             result_to_write = {}
 
             for obj in list_objs:
-                if isinstance(obj, cls):
+                if type(obj) is cls:
                     result_to_write = obj.to_dictionary()
                     lst.append(result_to_write)
 
