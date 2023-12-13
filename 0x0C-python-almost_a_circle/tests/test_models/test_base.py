@@ -32,7 +32,7 @@ class TestId(unittest.TestCase):
 
         b1 = Base()
         self.assertEqual(b1.id, int(5))
-        
+
         b2 = Base()
         b2._Base__nb_objects == 0
         self.assertEqual(b1.id, int(5))
@@ -48,11 +48,11 @@ class TestId(unittest.TestCase):
         self.assertTrue(hasattr(Base, "load_from_file"))
         self.assertTrue(hasattr(Base, "save_to_file_csv"))
         self.assertTrue(hasattr(Base, "load_from_file_csv"))
-        
+
     def test_pycodestyle_base(self):
         """Testing for pycodestyle implementation"""
         pycode = pep8.StyleGuide(quiet=True)
         py = pycode.check_files(['./models/base.py'])
-        self.assertEqual(py, 0, "error with pycodestyle")
+        self.assertEqual(py.total_errors, 0, "error with pycodestyle")
         py = pycode.check_files(['./tests/test_models/test_base.py'])
-        self.assertTrue(py, 0, 'error with your pycodestyle implemetation')
+        self.assertEqual(py.total_errors, 0, 'error with your pycodestyle implemetation')
