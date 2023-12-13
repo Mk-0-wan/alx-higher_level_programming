@@ -1,9 +1,14 @@
 #!/usr/bin/python3
 """Simple unittest module"""
+import os
+import sys
+import pep8
 import unittest
+from io import StringIO
 from models.base import Base
-from models.rectangle import Rectangle
 from models.square import Square
+from models.rectangle import Rectangle
+
 
 class TestId(unittest.TestCase):
     """simple test unit for id"""
@@ -27,3 +32,27 @@ class TestId(unittest.TestCase):
 
         b1 = Base()
         self.assertEqual(b1.id, int(5))
+        
+        b2 = Base()
+        b2._Base__nb_objects == 0
+        self.assertEqual(b1.id, int(5))
+
+    def test_documentation(self):
+        """Testing for each method and class docstring"""
+        self.assertTrue(hasattr(Base, "param_validator"))
+        self.assertTrue(hasattr(Base, "create"))
+        self.assertTrue(hasattr(Base, "_Base__nb_objects"))
+        self.assertTrue(hasattr(Base, "to_json_string"))
+        self.assertTrue(hasattr(Base, "from_json_string"))
+        self.assertTrue(hasattr(Base, "save_to_file"))
+        self.assertTrue(hasattr(Base, "load_from_file"))
+        self.assertTrue(hasattr(Base, "save_to_file_csv"))
+        self.assertTrue(hasattr(Base, "load_from_file_csv"))
+        
+    def test_pycodestyle_base(self):
+        """Testing for pycodestyle implementation"""
+        pycode = pep8.StyleGuide(quiet=True)
+        py = pycode.check_files(['./models/base.py'])
+        self.assertEqual(py, 0, "error with pycodestyle")
+        py = pycode.check_files(['./tests/test_models/test_base.py'])
+        self.assertTrue(py, 0, 'error with your pycodestyle implemetation')
