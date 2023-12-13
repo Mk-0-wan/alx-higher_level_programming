@@ -129,7 +129,7 @@ class Base():
         Args:
             list_objs(Objects): a list of python objects
         """
-        filename = f"{cls.__name__}.json"
+        filename = f"{cls.__name__}.csv"
 
         if cls.__name__ == "Rectangle":
             header = ['id', 'width', 'height', 'x', 'y']
@@ -152,7 +152,7 @@ class Base():
         Args:
             list_objs(Objects): a list of python objects
         """
-        filename = f"{cls.__name__}.json"
+        filename = f"{cls.__name__}.csv"
         try:
             with open(filename, 'r') as csv_file:
                 # extract the data in dict format
