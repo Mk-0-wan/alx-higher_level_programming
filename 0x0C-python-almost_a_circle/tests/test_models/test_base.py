@@ -55,4 +55,5 @@ class TestId(unittest.TestCase):
         py = pycode.check_files(['./models/base.py'])
         self.assertEqual(py.total_errors, 0, "error with pycodestyle")
         py = pycode.check_files(['./tests/test_models/test_base.py'])
-        self.assertEqual(py.total_errors, 0, 'error with your pycodestyle implemetation')
+        self.assertEqual(py.total_errors, 0,
+                         'error with your pycodestyle implemetation')

@@ -5,6 +5,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
+
 class TestId(unittest.TestCase):
     """simple test unit for id"""
     def test_width_and_height_normal(self):

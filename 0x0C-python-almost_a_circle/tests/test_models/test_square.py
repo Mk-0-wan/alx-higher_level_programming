@@ -5,6 +5,7 @@ import unittest
 import io
 from unittest.mock import patch
 
+
 class TestRectangle(unittest.TestCase):
     """Test Rectangle class"""
 
