@@ -76,3 +76,15 @@ class TestId(unittest.TestCase):
         # ValueError for X
         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             Rectangle(43, 2, -4, 0)
+            
+    def test_to_json_string(self):
+        """Testing all the working possibilites"""
+        lst = [
+            {'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8},
+            {'x': 3, 'width': 5, 'id': 20, 'height': 9, 'y': 1}
+        ]
+        json_list = Rectangle.to_json_string(lst)
+        python_list = Rectangle.from_json_string(json_list)
+        self.assertIsInstance(lst, list)
+        self.assertIsInstance(json_list, str)
+        self.assertIsInstance(python_list, list)
