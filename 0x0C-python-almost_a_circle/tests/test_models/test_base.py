@@ -72,6 +72,18 @@ class TestId(unittest.TestCase):
         string = Rectangle.from_json_string([])
         self.assertIsInstance(string, list)
 
+    def test_for_empty_param_square(self):
+        """Testing for empty data for square class"""
+        Square.save_to_file([])
+        with open("Square.json", "r", encoding="utf-8") as sq_f:
+            self.assertEqual([], json.load(sq_f))
+
+        sq_lst = Square.to_json_string([])
+        self.assertEqual(sq_lst, '[]')
+
+        sq_string = Square.from_json_string([])
+        self.assertEqual(sq_string, [])
+
     def test_for_None_param(self):
         """Testing for None arguments"""
         Rectangle.save_to_file(None)
@@ -82,6 +94,18 @@ class TestId(unittest.TestCase):
         self.assertIsInstance(lst, str)
 
         string = Rectangle.from_json_string(None)
+        self.assertIsInstance(string, list)
+
+    def test_for_None_param_square(self):
+        """Testing for None arguments for the square class"""
+        Square.save_to_file(None)
+        with open('Square.json', 'r') as none_file:
+            self.assertEqual([], json.load(none_file))
+
+        sq_lst = Square.to_json_string(None)
+        self.assertIsInstance(sq_lst, str)
+
+        string = Square.from_json_string(None)
         self.assertIsInstance(string, list)
 
     def test_to_json_string(self):
