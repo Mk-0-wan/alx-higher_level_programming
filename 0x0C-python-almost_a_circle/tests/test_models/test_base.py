@@ -70,7 +70,7 @@ class TestId(unittest.TestCase):
 
         string = Rectangle.from_json_string([])
         self.assertIsInstance(string, list)
-        
+
     def test_for_None_param(self):
         """Testing for None arguments"""
         Rectangle.save_to_file(None)
@@ -87,7 +87,7 @@ class TestId(unittest.TestCase):
         """Testing all the working possibilites"""
         json_list = Rectangle.to_json_string([{'id': 12}])
         self.assertIsInstance(json_list, str)
-        
+
         json_list = Rectangle.to_json_string([{'id': 22}])
         self.assertIsInstance(json_list, str)
 
@@ -98,7 +98,7 @@ class TestId(unittest.TestCase):
 
         python_list = Rectangle.from_json_string(json_list)
         self.assertIsInstance(python_list, list)
-        
+
         python_list_1 = Rectangle.from_json_string(json_list_1)
         self.assertIsInstance(python_list_1, list)
 
@@ -130,9 +130,6 @@ class TestId(unittest.TestCase):
             rect_objects = sum(1 for _ in rect_file)
         self.assertGreater(rect_objects, 0)
 
-        # for rects in list_of_rectangle:
-            # self.assertIsInstance(rects, Rectangle)
-
         list_of_square = [
             {'size': 9, 'x': 4, 'y': 3, 'id': 89},
             {'size': 20, 'x': 3, 'y': 4, 'id': 19}
@@ -146,11 +143,9 @@ class TestId(unittest.TestCase):
             sq_objects = sum(1 for _ in sq_file)
         self.assertGreater(sq_objects, 0)
 
-        # for sq in list_of_square:
-            # self.assertIsInstance(sq, Square)
-
     def test_load_from_file(self):
-        """Test for checking for all the saved file during loading the data inside"""
+        """Test for checking for all
+        the saved file during loading the data inside"""
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
         list_rectangles_input = [r1, r2]
