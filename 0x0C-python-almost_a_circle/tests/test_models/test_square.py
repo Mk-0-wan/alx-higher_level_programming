@@ -55,16 +55,20 @@ class TestRectangle(unittest.TestCase):
             Square(size=3, x=-2)
         with self.assertRaises(TypeError):
             Square(size=5, y='k')
+        with self.assertRaises(TypeError):
+            Square(size=8, y=8, x='O')
+        with self.assertRaises(ValueError):
+            Square(0)
 
     def test_str_square(self):
         """Testing the string format of the class square"""
         Base._Base__nb_objects = 0
         s1 = Square(5)
-        self.assertEqual(str(s1), "[Square] (1) 0/0 - 5")
+        self.assertEqual(s1.__str__(), "[Square] (1) 0/0 - 5")
         s2 = Square(2, 2)
-        self.assertEqual(str(s2), "[Square] (2) 2/0 - 2")
+        self.assertEqual(s2.__str__(), "[Square] (2) 2/0 - 2")
         s3 = Square(3, 1, 3)
-        self.assertEqual(str(s3), "[Square] (3) 1/3 - 3")
+        self.assertEqual(s3.__str__(), "[Square] (3) 1/3 - 3")
 
     def test_area_square(self):
         """Testing for the square method"""

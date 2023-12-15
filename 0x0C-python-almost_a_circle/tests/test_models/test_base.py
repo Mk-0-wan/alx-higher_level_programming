@@ -180,3 +180,44 @@ class TestId(unittest.TestCase):
         self.assertEqual(r2.__str__(), '[Rectangle] (1) 1/0 - 3/5')
         self.assertFalse(r1 is r2)
         self.assertFalse(r1 == r2)
+
+    def test_save_to_file_and_load_from_file_with_no_args_passed(self):
+        """Testing for both no param passed when no param are passed"""
+
+        rect_list = Rectangle.load_from_file()
+        for rect in rect_list:
+            self.assertIsInstance(rect, Rectangle)
+
+        sq_list = Square.load_from_file()
+        for sq in sq_list:
+            self.assertIsInstance(sq, Square)
+
+        try:
+            os.remove("Rectangle.json")
+        except Exception:
+            pass
+        rect_list = Rectangle.load_from_file()
+        self.assertEqual(len(rect_list), 0)
+        self.assertIsInstance(rect_list, list)
+
+        try:
+            os.remove("Square.json")
+        except Exception:
+            pass
+        sq_list = Square.load_from_file()
+        self.assertEqual(len(sq_list), 0)
+        self.assertIsInstance(sq_list, list)
+
+        Rectangle.save_to_file([Rectangle(1, 2)])
+        self.assertTrue(os.path.isfile('Rectangle.json'))
+
+        with open('Rectangle.json', 'r') as rect_file:
+            rect_objects = sum(1 for _ in rect_file)
+        self.assertGreater(rect_objects, 0)
+
+        Square.save_to_file([Square(1)])
+        self.assertTrue(os.path.isfile('Square.json'))
+
+        with open('Square.json', 'r') as sq_file:
+            sq_objects = sum(1 for _ in sq_file)
+        self.assertGreater(sq_objects, 0)
