@@ -76,7 +76,7 @@ class TestId(unittest.TestCase):
         # ValueError for X
         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             Rectangle(43, 2, -4, 0)
-            
+
     def test_to_json_string(self):
         """Testing all the working possibilites"""
         lst = [
