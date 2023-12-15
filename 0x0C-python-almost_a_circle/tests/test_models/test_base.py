@@ -16,6 +16,7 @@ class TestId(unittest.TestCase):
 
     def test_id(self):
         """Test if id is an integer"""
+        Base._Base__nb_objects = 0
         b1 = Base()
         self.assertEqual(b1.id, int(1))
 
@@ -116,6 +117,7 @@ class TestId(unittest.TestCase):
 
     def test_to_save_file(self):
         """Test for all the file openning and writting json file"""
+        # TODO: is the correct way Rectangle([1,12,3])
         list_of_rectangle = [
             {'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8},
             {'x': 3, 'width': 5, 'id': 20, 'height': 9, 'y': 1}
@@ -167,3 +169,14 @@ class TestId(unittest.TestCase):
 
         for sq in list_squares_output:
             self.assertIsInstance(sq, Square)
+
+    def test_create(self):
+        """Test cases for the create class method"""
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+
+        self.assertEqual(r1.__str__(), '[Rectangle] (1) 1/0 - 3/5')
+        self.assertEqual(r2.__str__(), '[Rectangle] (1) 1/0 - 3/5')
+        self.assertFalse(r1 is r2)
+        self.assertFalse(r1 == r2)
