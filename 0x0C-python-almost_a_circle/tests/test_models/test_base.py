@@ -132,6 +132,10 @@ class TestId(unittest.TestCase):
             rect_objects = sum(1 for _ in rect_file)
         self.assertGreater(rect_objects, 0)
 
+        rect_list = Rectangle.load_from_file()
+        for rect in rect_list:
+            self.assertIsInstance(rect, Rectangle)
+
         list_of_square = [
             {'size': 9, 'x': 4, 'y': 3, 'id': 89},
             {'size': 20, 'x': 3, 'y': 4, 'id': 19}
@@ -144,6 +148,10 @@ class TestId(unittest.TestCase):
         with open('Square.json', 'r') as sq_file:
             sq_objects = sum(1 for _ in sq_file)
         self.assertGreater(sq_objects, 0)
+
+        sq_list = Square.load_from_file()
+        for sq in sq_list:
+            self.assertIsInstance(sq, Square)
 
     def test_load_from_file(self):
         """Test for checking for all
@@ -172,6 +180,7 @@ class TestId(unittest.TestCase):
 
     def test_create(self):
         """Test cases for the create class method"""
+        Base._Base__nb_objects = 0
         r1 = Rectangle(3, 5, 1)
         r1_dictionary = r1.to_dictionary()
         r2 = Rectangle.create(**r1_dictionary)
@@ -180,6 +189,20 @@ class TestId(unittest.TestCase):
         self.assertEqual(r2.__str__(), '[Rectangle] (1) 1/0 - 3/5')
         self.assertFalse(r1 is r2)
         self.assertFalse(r1 == r2)
+        self.assertEqual(r1.id, r2.id)
+        self.assertEqual(r1.area(), r2.area())
+        self.assertEqual(r1.width, r2.width)
+
+        s1 = Square(10, 2, 1)
+        s1_dictionary = s1.to_dictionary()
+        s3 = Square.create(**s1_dictionary)
+        self.assertEqual(s1.__str__(), '[Square] (3) 2/1 - 10')
+        self.assertEqual(s3.__str__(), '[Square] (3) 2/1 - 10')
+        self.assertFalse(s1 is s3)
+        self.assertFalse(s1 == s3)
+        self.assertEqual(s1.id, s3.id)
+        self.assertEqual(s1.size, s3.size)
+        self.assertEqual(s1.area(), s3.area())
 
     def test_save_to_file_and_load_from_file_with_no_args_passed(self):
         """Testing for both no param passed when no param are passed"""
@@ -211,13 +234,13 @@ class TestId(unittest.TestCase):
         Rectangle.save_to_file([Rectangle(1, 2)])
         self.assertTrue(os.path.isfile('Rectangle.json'))
 
-        with open('Rectangle.json', 'r') as rect_file:
+        with open('Rectangle.json', 'r', encoding="utf-8") as rect_file:
             rect_objects = sum(1 for _ in rect_file)
         self.assertGreater(rect_objects, 0)
 
         Square.save_to_file([Square(1)])
         self.assertTrue(os.path.isfile('Square.json'))
 
-        with open('Square.json', 'r') as sq_file:
+        with open('Square.json', 'r', encoding="utf-8") as sq_file:
             sq_objects = sum(1 for _ in sq_file)
         self.assertGreater(sq_objects, 0)
