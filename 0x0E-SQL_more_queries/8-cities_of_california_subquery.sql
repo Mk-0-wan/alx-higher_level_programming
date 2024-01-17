@@ -4,4 +4,5 @@
 SELECT id, name
 FROM cities
 WHERE state_id = ( SELECT name FROM states WHERE name = 'California')
+GROUP BY id
 ORDER BY id ASC;
