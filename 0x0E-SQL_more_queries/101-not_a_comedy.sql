@@ -1,7 +1,7 @@
 -- Not a comedy show
 SELECT tv_shows.title
 FROM tv_shows
-WHERE tv.shows.title NOT IN (
+WHERE tv_shows.title NOT IN (
 	SELECT tv_shows.title
 	FROM tv_shows
 	INNER JOIN tv_show_genres
