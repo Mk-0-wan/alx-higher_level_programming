@@ -4,5 +4,3 @@
 exports.add = function (a, b) {
   return (a + b);
 };
-
-export var myVar = 333;
