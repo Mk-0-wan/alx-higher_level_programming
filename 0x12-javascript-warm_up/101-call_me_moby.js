@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 exports.callMeMoby = function (x, theFunction) {
-  while (x) {
+  while (x && /^\d+$/.test(x)) {
     theFunction();
     x--;
   }
