@@ -8,6 +8,8 @@ if (process.argv[2]) {
       console.log('X'.repeat(ssize));
       iter++;
     }
+  } else if (isNaN(ssize)) {
+    console.log('Missing size');
   }
 } else {
   console.log('Missing size');
