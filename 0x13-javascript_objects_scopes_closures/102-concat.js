@@ -20,15 +20,13 @@ const fileB = './fileB';
 function readFileAHandler (fileA) {
   fs.readFile(fileA, (err, data) => {
     if (err) {
-      console.error(err);
-      return;
+      throw (err);
     }
     const content = data.toString();
     if (content) {
       fs.appendFile('./fileC', content, (err) => {
         if (err) {
-          console.error(err);
-          return;
+          throw (err);
         }
         //console.log('saved');
       });
@@ -39,15 +37,13 @@ function readFileAHandler (fileA) {
 function readFileBHandler (fileB) {
   fs.readFile(fileB, (err, data) => {
     if (err) {
-      console.error(err);
-      return;
+      throw (err);
     }
     const contentB = data.toString();
     if (contentB) {
       fs.appendFile('./fileC', contentB, (err) => {
         if (err) {
-          console.error(err);
-          return;
+          throw (err);
         }
         //console.log('All saved');
       });
