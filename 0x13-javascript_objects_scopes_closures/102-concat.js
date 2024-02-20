@@ -21,6 +21,7 @@ function readFileAHandler (fileA) {
   fs.readFile(fileA, (err, data) => {
     if (err) {
       console.error(err);
+      return;
     }
     const content = data.toString();
     if (content) {
