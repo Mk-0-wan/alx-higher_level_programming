@@ -6,12 +6,12 @@
  * Function will be taking multiple cmd args, will need to use process.argv
  */
 
-//console.log(Object.getPrototypeOf(process.argv));
+// console.log(Object.getPrototypeOf(process.argv));
 
 /*
  Object is a list type.Open with read and write synchronously, for file one open, file two open for reading
  then write all the data collected from both the file and write to the third argument. All in the same order.
- 
+
 ---------------------------------
  [0]    [1]      [2]  [3]  [4]
   |      |        |    |    |
@@ -35,7 +35,7 @@ function readFileAHandler (fileA) {
         if (err) {
           throw (err);
         }
-        //console.log('saved');
+        // console.log('saved');
       });
     }
   });
@@ -52,7 +52,7 @@ function readFileBHandler (fileB) {
         if (err) {
           throw (err);
         }
-        //console.log('All saved');
+        // console.log('All saved');
       });
     }
   });
