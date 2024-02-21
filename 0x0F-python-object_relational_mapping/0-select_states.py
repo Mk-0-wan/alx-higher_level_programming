@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Making a simple connection, and reading data from it.
+"""Making a simple connection, and reading data from it."""
 
 if __name__ == '__main__':
 
@@ -20,7 +20,8 @@ if __name__ == '__main__':
     try:
         with mdb.connect(**database_config) as db:
             with db.cursor() as cur:
-                select_query = "SELECT states.id, states.name FROM states ORDER BY states.id ASC"
+                select_query = "SELECT states.id, states.name FROM\
+                     states ORDER BY states.id ASC"
                 cur.execute(select_query)
                 for row in cur.fetchall():
                     print(row)

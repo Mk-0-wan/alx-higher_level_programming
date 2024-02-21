@@ -1,4 +1,6 @@
+venv/
+*.bak
+*.pyo
+*.swp
 *.whl
 *.pyc
-*.sh
-venv/
