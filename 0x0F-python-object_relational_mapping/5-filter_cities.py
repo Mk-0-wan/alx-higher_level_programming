@@ -27,7 +27,7 @@ if __name__ == '__main__':
                 if (cur_rows):
                     for indx, row in enumerate(cur_rows):
                         print(row[1],
-                              end=("\n", ",")[(indx + 1) < len(cur_rows)])
+                              end=("\n", ", ")[(indx + 1) < len(cur_rows)])
                 else:
                     print()
     except mdb.Error as e:
