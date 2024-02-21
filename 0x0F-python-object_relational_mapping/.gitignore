@@ -1,0 +1,4 @@
+*.whl
+*.pyc
+*.sh
+venv/
