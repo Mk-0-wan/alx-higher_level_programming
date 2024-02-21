@@ -14,19 +14,15 @@ if __name__ == '__main__':
         'password': sys.argv[2],
         'database': sys.argv[3]
     }
-    # make a list of all the queries to try
-    # include the left join right join full and inner join
-
-    select_queirs = "SELECT cities.id, cities.name, states.name\
-         FROM cities INNER JOIN states ON cities.state_id = states.id\
-         WHERE states.name = %s ORDER BY cities.id ASC"
-
-    # with block will automatically close both the database and the cursor
-    # once the with block is exited
     try:
         with mdb.connect(**database_config) as db:
             with db.cursor() as cur:
-                cur.execute(query, (sys.argv[4],))
+                select_query = "SELECT cities.id, cities.name, states.name\
+                     FROM cities INNER JOIN states ON\
+                     cities.state_id = states.id\
+                     WHERE states.name = %s\
+                     ORDER BY cities.id ASC"
+                cur.execute(select_query, (sys.argv[4],))
                 cur_rows = cur.fetchall()
                 if (cur_rows):
                     for indx, row in enumerate(cur_rows):
