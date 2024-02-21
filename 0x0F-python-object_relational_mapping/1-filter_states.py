@@ -27,4 +27,3 @@ if __name__ == '__main__':
                     print(row)
     except mdb.Error as e:
         raise (e)
-
