@@ -27,8 +27,11 @@ if __name__ == '__main__':
                      ORDER BY cities.id ASC"
                 cur.execute(select_query, ('%' + sys.argv[4] + '%',))
                 cur_rows = cur.fetchall()
-                for indx, row in enumerate(cur_rows):
-                    print(row[1],
-                          end=("\n", ",")[(indx + 1) < cur_rows.__len__()])
+                if (cur_rows):
+                    for indx, row in enumerate(cur_rows):
+                        print(row[1],
+                            end=("\n", ",")[(indx + 1) < cur_rows.__len__()])
+                else:
+                    print()
     except mdb.Error as e:
         raise (e)
