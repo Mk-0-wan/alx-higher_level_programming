@@ -20,8 +20,9 @@ if __name__ == '__main__':
     try:
         with mdb.connect(**database_config) as db:
             with db.cursor() as cur:
-                select_query = "SELECT states.id, states.name FROM\
-                     states WHERE states.name LIKE 'N%' ORDER BY states.id ASC"
+                select_query = "SELECT states.id, states.name FROM states\
+                     WHERE BINARY states.name LIKE 'N%'\
+                     ORDER BY states.id ASC"
                 cur.execute(select_query)
                 for row in cur.fetchall():
                     print(row)
