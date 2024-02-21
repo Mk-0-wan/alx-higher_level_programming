@@ -14,24 +14,40 @@ if __name__ == '__main__':
         'password': sys.argv[2],
         'database': sys.argv[3]
     }
+    # make a list of all the queries to try
+    # include the left join right join full and inner join
+
+    select_queirs = [
+        "SELECT cities.id, cities.name, states.name FROM cities INNER JOIN\
+         states ON cities.state_id = states.id WHERE BINARY states.name LIKE\
+         ORDER BY cities.id ASC",
+
+        "SELECT cities.id, cities.name, states.name FROM cities LEFT JOIN\
+         states ON cities.state_id = states.id WHERE BINARY states.name LIKE\
+         ORDER BY cities.id ASC",
+
+        "SELECT cities.id, cities.name, states.name FROM cities RIGHT JOIN\
+         states ON cities.state_id = states.id WHERE BINARY states.name LIKE\
+         ORDER BY cities.id ASC",
+    ]
 
     # with block will automatically close both the database and the cursor
     # once the with block is exited
     try:
         with mdb.connect(**database_config) as db:
             with db.cursor() as cur:
-                select_query = "SELECT cities.id, cities.name, states.name\
-                     FROM cities INNER JOIN states ON\
-                     cities.state_id = states.id\
-                     WHERE BINARY states.name LIKE %s\
-                     ORDER BY cities.id ASC"
-                cur.execute(select_query, ('%' + sys.argv[4] + '%',))
-                cur_rows = cur.fetchall()
-                if (cur_rows):
-                    for indx, row in enumerate(cur_rows):
-                        print(row[1],
-                            end=("\n", ",")[(indx + 1) < cur_rows.__len__()])
-                else:
-                    print()
+                for query in select_queries:
+                    try:
+                        cur.execute(query, ('%' + sys.argv[4] + '%',))
+                        cur_rows = cur.fetchall()
+                        if (cur_rows):
+                            for indx, row in enumerate(cur_rows):
+                                print(row[1], end=("\n", ",")
+                                      [(indx + 1) < len(cur_rows)])
+                        else:
+                            print()
+                        break
+                    except mdb.Error as e:
+                        continue
     except mdb.Error as e:
         raise (e)
