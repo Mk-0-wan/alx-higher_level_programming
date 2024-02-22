@@ -33,3 +33,8 @@ class State(Base):
         String(128),
         nullable=False
     )
+
+    def __init__(self, name):
+        """Initializes the class state name to allow insertion of objects to
+        the database"""
+        self.name = name
