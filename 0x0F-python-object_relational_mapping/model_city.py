@@ -4,7 +4,7 @@ from model_state import Base, State
 from sqlalchemy import Column, String, Integer, ForeignKey
 
 
-class Cities(Base):
+class City(Base):
     """Class Cities, inherits from the Base class, citites will be having a
     relationship with the state id as it's foreign key values
 
