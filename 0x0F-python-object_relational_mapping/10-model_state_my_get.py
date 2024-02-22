@@ -21,3 +21,5 @@ if __name__ == "__main__":
     if (result):
         for obj in result:
             print(obj.id)
+    else:
+        print('Not found')
