@@ -21,13 +21,12 @@ class State(Base):
     # setting up the id properties
     id = Column(
         'id',
-        Integer(11),
+        Integer,
         primary_key=True,
         autoincrement=True,
         nullable=False,
         unique=True
     )
-
     # setting up the name properties
     name = Column(
         'name',
