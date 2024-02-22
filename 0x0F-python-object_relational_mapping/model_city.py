@@ -40,8 +40,3 @@ class Cities(Base):
         String(128),
         nullable=False
     )
-
-    def __init__(self, name):
-        """Initializes the class cities name to allow creation of uniqe objects
-        to the database"""
-        self.name = name
