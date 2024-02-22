@@ -4,7 +4,7 @@ which will allow us to make some query to the database
 """
 import sys
 from model_state import Base, State
-from model_city import Cities
+from model_city import City
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import (create_engine)
 
@@ -18,6 +18,6 @@ if __name__ == "__main__":
     # Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     sn = Session()
-    result = sn.query(State, Cities).join(Cities).all()
+    result = sn.query(State, City).join(City).all()
     for state, city in result:
         print(f"{state.name}: ({city.id}) {city.name}")
