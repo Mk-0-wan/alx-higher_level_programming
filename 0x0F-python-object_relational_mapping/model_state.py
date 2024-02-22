@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 """Translating a python class object and mapping it to a mysql database"""
-
-import sqlalchemy
 from sqlalchemy import String, Integer, Column
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -19,6 +17,7 @@ class State(Base):
         name(string): this will be translated to the name column in the sql
     """
     __tablename__ = 'states'
+
     # setting up the id properties
     id = Column(
         'id',
@@ -28,6 +27,7 @@ class State(Base):
         nullable=False,
         unique=True
     )
+
     # setting up the name properties
     name = Column(
         'name',
