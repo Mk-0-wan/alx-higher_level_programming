@@ -23,7 +23,7 @@ if __name__ == "__main__":
     state = State(name='California')
 
     # associate the state to the city
-    state.related_cities.append(city)
+    state.cities.append(city)
 
     with Session.begin() as sn:
         sn.add(state)
