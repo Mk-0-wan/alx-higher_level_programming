@@ -1,3 +1,3 @@
 #!/bin/bash
 # Sending a post request with a json data file
-curl -s -d "@'$2'" -H "Content-Type: application/json" "$1"
+curl -s -H "Content-Type: application/json" -d @"$2" "$1"
