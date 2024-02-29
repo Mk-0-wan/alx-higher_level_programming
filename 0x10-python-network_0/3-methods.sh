@@ -1,3 +1,3 @@
 #!/bin/bash
 # getting all allowed methods
-curl -s -X OPTIONS "$1" | grep -qoi 'Allow' | awk '{print $2}'
+curl -s -i -X OPTIONS "$1" | grep -i "Allow" | awk '{print $2}' FS=: | sed 's/ //'
