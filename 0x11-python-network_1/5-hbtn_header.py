@@ -5,4 +5,5 @@ if __name__ == "__main__":
     from sys import argv
 
     response = get(argv[1])
-    print(response.headers['X-Request-Id'])
+    if response:
+        print(response.headers['X-Request-Id'])
