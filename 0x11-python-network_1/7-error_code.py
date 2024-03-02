@@ -5,7 +5,6 @@ if __name__ == "__main__":
     from sys import argv
     import requests
 
-
     url = argv[1]
     try:
         response = requests.get(url)
@@ -13,6 +12,6 @@ if __name__ == "__main__":
             response.raise_for_status()
         else:
             print(response.text)
-    except requests.exceptions.HTTPError as e:  # something is happening here (inheritance)
-        print(f"Erro code: {e.response.status_code}")
-
+    # something is happening here (inheritance)
+    except requests.exceptions.HTTPError as e:
+        print(f"Error code: {e.response.status_code}")
