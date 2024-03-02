@@ -7,8 +7,9 @@ if __name__ == "__main__":
 
 
     url = argv[1]
-    response = requests.get(url)
-    if (response.status_code == 200):
-        print(response.text)
-    else:
-        print(f"Erro code: {response.status_code}")
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+    except requests.exceptions.HTTPError as e:
+        print(f"Erro code: {e.response.status_code}")
+
