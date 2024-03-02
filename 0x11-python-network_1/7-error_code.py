@@ -9,7 +9,10 @@ if __name__ == "__main__":
     url = argv[1]
     try:
         response = requests.get(url)
-        response.raise_for_status()
-    except requests.exceptions.HTTPError as e:
+        if (response.status_code >= 400):
+            response.raise_for_status()
+        else:
+            print(response.text)
+    except requests.exceptions.HTTPError as e:  # something is happening here (inheritance)
         print(f"Erro code: {e.response.status_code}")
 
