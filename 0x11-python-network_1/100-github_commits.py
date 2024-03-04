@@ -17,6 +17,7 @@ if __name__ == "__main__":
 
     response = get(url, git_params, headers=git_headers)
     if (response.status_code != 200):
+        print('None')
         exit()
 
     commits = response.json()
