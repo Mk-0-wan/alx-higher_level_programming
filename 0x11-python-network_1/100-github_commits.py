@@ -23,4 +23,3 @@ if __name__ == "__main__":
     commits = response.json()
     for commit in commits:
         print(f"{commit['sha']}: {commit['commit']['author']['name']}")
-
