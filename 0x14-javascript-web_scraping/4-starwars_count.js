@@ -2,7 +2,6 @@
 
 const request = require('request');
 const URL = process.argv[2];
-const userId = 18;
 
 request(URL, (error, response, body) => {
   if (!error && response.statusCode === 200) {
@@ -12,7 +11,7 @@ request(URL, (error, response, body) => {
     for (let i = 0; i < newObject.count; i++) {
       const p = goingUp?.[i]?.characters;
       for (let j = 0; j < p.length; j++) {
-        if (p[j] === `https://swapi-api.alx-tools.com/api/people/${userId}/`) {
+        if (p[j].includes('/18/')) {
           count++;
         }
       }
